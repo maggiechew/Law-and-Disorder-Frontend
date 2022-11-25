@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+import logo from './Law&DisOrderLogoV11_Horizontal.png'
 import './App.css'
 import NavBar from './components/NavBar'
 import Hamburguler from './components/Hamburguler'
@@ -9,6 +9,7 @@ function App() {
   console.log(menuOpen)
   return (
     <div className="App">
+      <div>return(){<img src={logo} alt="Law & DisOrder Logo V11" />}</div>
       {menuOpen && <NavBar />}
       <div className="page"></div>
       <Hamburguler setMenuOpen={setMenuOpen} />

@@ -3,15 +3,16 @@ import React from 'react'
 const NavBar = () => {
   return (
     <nav>
+      <h1>Law & DisOrder </h1>
       <ul>
         <li>
-          <a>Home</a>
+          <a>Crime Map</a>
         </li>
         <li>
-          <a>Forum(TBA)</a>
+          <a>Forum (TBA)</a>
         </li>
         <li>
-          <a>Contact</a>
+          <a>Additional Resources</a>
         </li>
         <li>
           <a>About Us</a>
