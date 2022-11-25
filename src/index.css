@@ -123,3 +123,6 @@ input:checked + label path.middle2 {
   transform-origin: 50% 50%;
   transition: transform 250ms ease;
 }
+.logo {
+  height: 250px;
+}

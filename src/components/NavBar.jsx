@@ -3,7 +3,6 @@ import React from 'react'
 const NavBar = () => {
   return (
     <nav>
-      <h1>Law & DisOrder </h1>
       <ul>
         <li>
           <a>Crime Map</a>

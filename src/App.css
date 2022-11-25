@@ -1,9 +1,12 @@
 .App {
   text-align: space-evenly;
-  display: grid;
-  grid-template-rows: 1fr 9fr;
-  grid-template-columns: 1fr 9fr;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+.header {
+  display: flex;
 }
 
 .hamburgler {
@@ -15,7 +18,7 @@
   grid-row: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: space-evenly;
 }
 
 .App-logo {
