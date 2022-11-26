@@ -2,10 +2,10 @@
   height: 100vh;
 }
 
-@font-face {
+/* @font-face {
   font-family: friz-quadrata-medium;
   src: url("./../../friz-quadrata-std/friz-quadrata-medium.otf") format("otf");
-}
+} */
 
 body {
   font-size: 24px;
