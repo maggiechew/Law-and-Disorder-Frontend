@@ -2,7 +2,8 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav id='navbar'>
+    
       <ul>
         <li>
           <a>Crime Map</a>
