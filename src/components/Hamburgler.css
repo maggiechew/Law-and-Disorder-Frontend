@@ -1,0 +1,50 @@
+/* Hamburger Animations */
+
+.menu:checked + .hamburgler-label path.middle1 {
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    transition: transform 250ms ease;
+  }
+  .menu:checked + .hamburgler-label path.middle2 {
+    transform: rotate(-45deg);
+    transform-origin: 50% 50%;
+    transition: transform 250ms ease;
+  }
+  
+  .menu:checked + label path {
+    fill: rgb(171, 16, 16);
+  }
+
+  .menu {
+    display: none;
+  }
+  
+  svg.hamburgler {
+    width: 50px;
+  }
+  
+  svg.hamburgler path {
+    fill: rgb(241, 255, 38);
+    transform-origin: 50% 50%;
+  }
+  
+  .top,
+  .bottom {
+    transition: all 250ms ease;
+  }
+  
+  .menu:checked + .hamburgler-label path.top,
+  .menu:checked + .hamburgler-label path.bottom {
+    /* display: none; */
+    opacity: 0;
+    transition: all 250ms ease;
+  }
+  
+  .middle1,
+  .middle2 {
+    transition: all 250ms ease;
+  }
+
+  .hamburgler {
+    justify-content: flex-end;
+  }
