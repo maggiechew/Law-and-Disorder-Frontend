@@ -1,3 +1,8 @@
+#navbar {
+  
+}
+
+
 .App {
   text-align: space-evenly;
   display: flex;
@@ -33,7 +38,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -63,4 +68,133 @@
 
 .h1 {
   color: white;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* @font-face {
+  font-family: friz-quadrata-medium;
+  src: url("./../../friz-quadrata-std/friz-quadrata-medium.otf") format("otf");
+} */
+
+body {
+  font-size: 24px;
+  /* background-color: black; */
+  display: flex;
+  min-height: 100vh;
+}
+
+h1 {
+  color: white;
+  font-size: 70px;
+  font-family: friz;
+}
+
+title {
+  color: white;
+}
+
+nav ul {
+  display: none;
+  /* justify-content: space-evenly;
+  flex-wrap: wrap; */
+  list-style: none;
+  padding-left: 50;
+}
+
+.visible {
+  display: block;
+}
+
+nav ul > * {
+  flex: auto;
+  flex-direction: column;
+}
+
+li {
+  border: 1px solid black;
+}
+
+a {
+  display: block;
+  padding: 1em;
+  margin: 0;
+  background-color: rgb(171, 16, 16);
+  text-decoration: none;
+  text-align: center;
+}
+a,
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+  background-color: rgb(0, 11, 112);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@media screen and (min-width: 40em) {
+  nav ul {
+    display: flex;
+  }
+}
+
+main {
+  margin: auto;
+  width: 10vw;
+}
+
+input {
+  display: none;
+}
+
+svg path {
+  fill: rgb(0, 11, 112);
+  transform-origin: 50% 50%;
+}
+
+svg.hamburgler {
+  width: 100px;
+}
+
+input:checked + label path {
+  fill: rgb(171, 16, 16);
+}
+
+.top,
+.bottom {
+  transition: all 250ms ease;
+}
+
+input:checked + label path.top,
+input:checked + label path.bottom {
+  /* display: none; */
+  opacity: 0;
+  transition: all 250ms ease;
+}
+
+.middle1,
+.middle2 {
+  transition: all 250ms ease;
+}
+
+input:checked + label path.middle1 {
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: transform 250ms ease;
+}
+input:checked + label path.middle2 {
+  transform: rotate(-45deg);
+  transform-origin: 50% 50%;
+  transition: transform 250ms ease;
+}
+.logo {
+  height: 250px;
 }
