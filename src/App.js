@@ -4,29 +4,24 @@ import NavBar from "./components/NavBar";
 import Hamburgler from "./components/Hamburgler";
 import { useState } from "react";
 // import MainLayoutPage from "./components/MainLayoutPage";
-import Map from "./components/Map";
-import SimpleBackdrop from "./components/Backdrop";
+import LoadingModal from "./components/LoadingModal";
+import MapPage from "./components/MapPage";
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(true);
   // const [blurLoading, setBlurLoading] = useState(true);
   // console.log(menuOpen);
 
   return (
+    <>
+      <LoadingModal />
     <div className="App">
-      <SimpleBackdrop />
-      <div className="header">
-        {/* <img src={logo} alt="Law & DisOrder Logo V11" /> */}
-        {menuOpen && <NavBar />}
-        {/* <div className="page"></div> */}
-        <Hamburgler setMenuOpen={setMenuOpen} />
-      </div>
-      <div className="Body">
-        {/* {blurLoading && <LoadingCard />} */}
-        <Map />
+      {/* <img src={logo} alt="Law & DisOrder Logo V11" /> */}
+      <NavBar />
+      {/* <div className="page"></div> */}
+        <MapPage />
         {/* <MainLayoutPage /> */}
-      </div>
     </div>
+    </>
   );
 }
 
