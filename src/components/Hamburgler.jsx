@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const Hamburguler = (props) => {
-  const setMenuOpen = props.setMenuOpen
+const Hamburgler = (props) => {
+  const setMenuOpen = props.setMenuOpen;
   return (
-    <div className="hamburgler_container">
+    // <div className="hamburgler_container">
+    <div>
       <input type="checkbox" name="menu" id="menu" />
       <label for="menu">
         <div onClick={() => setMenuOpen((curr) => !curr)}>
@@ -21,7 +22,7 @@ const Hamburguler = (props) => {
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default Hamburguler
+export default Hamburgler;

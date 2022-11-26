@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-console.log(mapboxgl.accessToken);
+// console.log(mapboxgl.accessToken);
 export default function Map() {
   const [viewport, setViewport] = useState({
     latitude: 51.04427,

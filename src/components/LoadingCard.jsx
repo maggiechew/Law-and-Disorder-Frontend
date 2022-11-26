@@ -5,6 +5,11 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 const bull = (
@@ -21,6 +26,24 @@ function LoadingCard() {
     <Card sx={{ minWidth: 275 }} variant="outlined">
       <CardContent>
         <img src={logo} alt="Law & DisOrder Logo V11" />
+
+        <FormControl>
+          <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="female"
+            name="radio-buttons-group"
+          >
+            <FormControlLabel
+              value="female"
+              control={<Radio />}
+              label="Female"
+            />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControlLabel value="other" control={<Radio />} label="Other" />
+          </RadioGroup>
+        </FormControl>
+
         {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
               Word of the Day
             </Typography>
