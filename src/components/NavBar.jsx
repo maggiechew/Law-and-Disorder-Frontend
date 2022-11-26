@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Hamburgler from './Hamburgler'
+import './NavBar.css'
 
 const NavBar = () => {
+  const [menuClosed, setMenuClosed] = useState(false);
+
   return (
     <nav id='navbar'>
-    
-      <ul>
+    {menuClosed &&
+      <ul className='nav-links'>
         <li>
           <a>Crime Map</a>
         </li>
@@ -17,7 +21,8 @@ const NavBar = () => {
         <li>
           <a>About Us</a>
         </li>
-      </ul>
+      </ul>}
+      <Hamburgler setMenuClosed={setMenuClosed}/>
     </nav>
   )
 }
