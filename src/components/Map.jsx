@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-// console.log(mapboxgl.accessToken);
+
 export default function Map() {
   const [viewport, setViewport] = useState({
     latitude: 51.04427,
@@ -29,7 +29,7 @@ export default function Map() {
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: "map",
-      style: "mapbox://styles/mapbox/navigation-night-v1",
+      style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [-114.062019, 51.04427],
       zoom: 10,
       projection: "globe",
@@ -46,8 +46,8 @@ export default function Map() {
         source: "crime", //reference the data source
         filter: [">=", "crimeScore", 0.8],
         paint: {
-          "fill-color": "#f00",
-          "fill-opacity": 0.5,
+          "fill-color": "#850101",
+          "fill-opacity": 0.9,
         },
       });
       map.addLayer({
@@ -56,8 +56,8 @@ export default function Map() {
         source: "crime",
         filter: ["all", [">=", "crimeScore", 0.6], ["<", "crimeScore", 0.8]],
         paint: {
-          "fill-color": "magenta",
-          "fill-opacity": 0.5,
+          "fill-color": "#dd2c00",
+          "fill-opacity": 0.8,
         },
       });
 
@@ -67,8 +67,8 @@ export default function Map() {
         source: "crime",
         filter: ["all", [">=", "crimeScore", 0.3], ["<", "crimeScore", 0.6]],
         paint: {
-          "fill-color": "#ff0",
-          "fill-opacity": 0.5,
+          "fill-color": "orange",
+          "fill-opacity": 0.7,
         },
       });
 
@@ -78,8 +78,8 @@ export default function Map() {
         source: "crime",
         filter: ["<", "crimeScore", 0.3],
         paint: {
-          "fill-color": "#0f0",
-          "fill-opacity": 0.5,
+          "fill-color": "yellow",
+          "fill-opacity": 0.6,
         },
       });
 
@@ -91,6 +91,7 @@ export default function Map() {
         paint: {
           "line-color": "#000",
           "line-width": 1,
+          "opacity": 0.5
         },
       });
 
@@ -161,5 +162,5 @@ export default function Map() {
     });
   }, []);
 
-  return <div id="map" style={{ width: "90vw", height: "90vh" }} />;
+  return <div id="map" />;
 }
