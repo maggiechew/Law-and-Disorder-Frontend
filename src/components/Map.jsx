@@ -1,43 +1,72 @@
 import React, { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
+// import Filters from "./Filters";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-console.log(mapboxgl.accessToken);
-export default function Map() {
-  const [viewport, setViewport] = useState({
-    latitude: 51.04427,
-    longitude: -114.062019,
-    width: "100vw",
-    height: "100vh",
-    zoom: 20,
-  });
-  const [selectedCrime, setSelectedCrime] = useState(null);
 
-  useEffect(() => {
-    const listener = (e) => {
-      if (e.key === "Escape") {
-        setSelectedCrime(null);
+
+
+
+export default function Map(props) {
+  // const [viewport, setViewport] = useState({
+  //   latitude: 51.04427,
+  //   longitude: -114.062019,
+  //   // longitude: -114.062019,
+  //   width: "100vw",
+  //   height: "100vh",
+  //   zoom: 30,
+  // });
+  // const [selectedCrime, setSelectedCrime] = useState(null);
+
+  // useEffect(() => {
+  //   const listener = (e) => {
+  //     if (e.key === "Escape") {
+  //       setSelectedCrime(null);
+  //     }
+  //   };
+  //   window.addEventListener("keydown", listener);
+
+  //   return () => {
+  //     window.removeEventListener("keydown", listener);
+  //   };
+  // }, []);
+  const {crimeFilters, timeFilters} = props;
+  const [dataValue, setDataValue] = useState([]);
+
+
+  useEffect (() => {
+    async function getData() {
+      const filterPacket = {
+        crimeFilters, timeFilters
       }
-    };
-    window.addEventListener("keydown", listener);
+      const dataResponse = await fetch("/api/crimeData", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(filterPacket), 
+      });
+      const responseValue = await dataResponse.json();
+      setDataValue(responseValue);
+    } 
+    getData()
+  },[crimeFilters, timeFilters])
 
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: "map",
-      style: "mapbox://styles/mapbox/navigation-night-v1",
+      style: "mapbox://styles/mapbox/satellite-streets-v12",
       center: [-114.062019, 51.04427],
       zoom: 10,
       projection: "globe",
     });
-    map.on("load", () => {
+
+    map.on("load", async () => {
       map.addSource("crime", {
         type: "geojson",
-        data: "/crime3.geojson",
+        data: dataValue,
+        // data: await getData("stuff"), //TODO: update "stuff"
       });
 
       map.addLayer({
@@ -46,8 +75,8 @@ export default function Map() {
         source: "crime", //reference the data source
         filter: [">=", "crimeScore", 0.8],
         paint: {
-          "fill-color": "#f00",
-          "fill-opacity": 0.5,
+          "fill-color": "#850101",
+          "fill-opacity": 0.6,
         },
       });
       map.addLayer({
@@ -56,8 +85,8 @@ export default function Map() {
         source: "crime",
         filter: ["all", [">=", "crimeScore", 0.6], ["<", "crimeScore", 0.8]],
         paint: {
-          "fill-color": "magenta",
-          "fill-opacity": 0.5,
+          "fill-color": "#dd2c00",
+          "fill-opacity": 0.7,
         },
       });
 
@@ -67,7 +96,7 @@ export default function Map() {
         source: "crime",
         filter: ["all", [">=", "crimeScore", 0.3], ["<", "crimeScore", 0.6]],
         paint: {
-          "fill-color": "#ff0",
+          "fill-color": "orange",
           "fill-opacity": 0.5,
         },
       });
@@ -78,8 +107,8 @@ export default function Map() {
         source: "crime",
         filter: ["<", "crimeScore", 0.3],
         paint: {
-          "fill-color": "#0f0",
-          "fill-opacity": 0.5,
+          "fill-color": "yellow",
+          "fill-opacity": 0.3,
         },
       });
 
@@ -90,7 +119,8 @@ export default function Map() {
         layout: {},
         paint: {
           "line-color": "#000",
-          "line-width": 1,
+          "line-width": 2,
+          opacity: 0.5,
         },
       });
 
@@ -159,7 +189,7 @@ export default function Map() {
         )
         .addTo(map);
     });
-  }, []);
+  }, [dataValue]);
 
-  return <div id="map" style={{ width: "90vw", height: "90vh" }} />;
+  return <div id="map" />;
 }
