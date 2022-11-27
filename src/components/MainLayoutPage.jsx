@@ -1,5 +1,6 @@
 import Paper from '@mui/material/Paper'
 import React from 'react'
+import Map from './Map'
 
 const MainLayoutPage = () => {
   return (
@@ -12,6 +13,7 @@ const MainLayoutPage = () => {
         gridColumn: '1',
       }}
     >
+    <Map />
       Law and Disorder Map goes here.
     </Paper>
   )
