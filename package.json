@@ -1,5 +1,6 @@
 {
   "name": "law_and_disorder",
+  "proxy": "https://law-and-disorder-production.up.railway.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
