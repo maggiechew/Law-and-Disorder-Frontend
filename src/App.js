@@ -9,18 +9,25 @@ import MapPage from "./components/MapPage";
 
 function App() {
   // const [blurLoading, setBlurLoading] = useState(true);
+  const [crimeFilters, setCrimeFilters] = useState(["assault"]);
+  const [timeFilters, setTimeFilters] = useState(["winter"]);
   // console.log(menuOpen);
 
   return (
     <>
-      <LoadingModal />
-    <div className="App">
-      {/* <img src={logo} alt="Law & DisOrder Logo V11" /> */}
-      <NavBar />
-      {/* <div className="page"></div> */}
-        <MapPage />
+      <LoadingModal setCrimeFilters={setCrimeFilters} />
+      <div className="App">
+        {/* <img src={logo} alt="Law & DisOrder Logo V11" /> */}
+        <NavBar />
+        {/* <div className="page"></div> */}
+        <MapPage
+          crimeFilters={crimeFilters}
+          setCrimeFilters={setCrimeFilters}
+          timeFilters={timeFilters}
+          setTimeFilters={setTimeFilters}
+        />
         {/* <MainLayoutPage /> */}
-    </div>
+      </div>
     </>
   );
 }

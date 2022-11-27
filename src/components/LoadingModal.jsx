@@ -17,30 +17,9 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-//   >
-//     •
-//   </Box>
-// );
-
-// function LoadingCard() {
-//   return (
-
-//   );
-// }
-
-// // export default LoadingCard;
-
-// // function LoadingCard() {
-
-// //   );
-// // }
-
-export default function LoadingModal() {
+export default function LoadingModal(props) {
   const [open, setOpen] = React.useState(true);
+  const blurLoading = props.blurLoading
   // const handleClose = () => {
   //   setOpen(false);
   // };
