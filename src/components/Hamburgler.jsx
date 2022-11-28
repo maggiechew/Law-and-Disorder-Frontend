@@ -1,7 +1,7 @@
 import React from "react";
 import './Hamburgler.css'
 
-const Hamburgler = (props) => {
+function Hamburgler (props) {
   const setMenuClosed = props.setMenuClosed;
   return (
     <div className="hamburgler_container">
