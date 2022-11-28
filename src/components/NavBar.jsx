@@ -1,8 +1,10 @@
+//TODO: https://mui.com/material-ui/react-drawer/#main-content is this better?
+
 import React, {useState} from 'react'
 import Hamburgler from './Hamburgler'
 import './NavBar.css'
 
-const NavBar = () => {
+function NavBar () {
   const [menuClosed, setMenuClosed] = useState(false);
 
   return (
