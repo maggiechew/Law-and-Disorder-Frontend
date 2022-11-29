@@ -4,9 +4,6 @@ import mapboxgl from "mapbox-gl";
 // import Filters from "./Filters";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-
-
-
 export default function Map(props) {
   // const [viewport, setViewport] = useState({
   //   latitude: 51.04427,
@@ -30,28 +27,27 @@ export default function Map(props) {
   //     window.removeEventListener("keydown", listener);
   //   };
   // }, []);
-  const {crimeFilters, timeFilters} = props;
+  const { timeFilters, weights } = props;
   const [dataValue, setDataValue] = useState([]);
 
-
-  useEffect (() => {
+  useEffect(() => {
     async function getData() {
       const filterPacket = {
-        crimeFilters, timeFilters
-      }
+        timeFilters,
+        weights,
+      };
       const dataResponse = await fetch("/api/crimeData", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(filterPacket), 
+        body: JSON.stringify(filterPacket),
       });
       const responseValue = await dataResponse.json();
       setDataValue(responseValue);
-    } 
-    getData()
-  },[crimeFilters, timeFilters])
-
+    }
+    getData();
+  }, [timeFilters, weights]);
 
   useEffect(() => {
     const map = new mapboxgl.Map({

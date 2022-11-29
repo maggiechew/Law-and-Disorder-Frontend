@@ -19,7 +19,7 @@ import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 export default function LoadingModal(props) {
   const [open, setOpen] = React.useState(true);
-  const blurLoading = props.blurLoading
+  const blurLoading = props.blurLoading;
   // const handleClose = () => {
   //   setOpen(false);
   // };

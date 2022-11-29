@@ -9,6 +9,17 @@ import MapPage from "./components/MapPage";
 
 function App() {
   // const [blurLoading, setBlurLoading] = useState(true);
+  const [weights, setWeights] = useState({
+    assault: 0,
+    bneStore: 0,
+    bneHome: 1,
+    bneOther: 1,
+    robStreet: 1,
+    robStore: 1,
+    violence: 1,
+    robOfCar: 1,
+    robFromCar: 1,
+  });
   const [crimeFilters, setCrimeFilters] = useState(["assault"]);
   const [timeFilters, setTimeFilters] = useState(["winter"]);
   // console.log(menuOpen);
@@ -21,8 +32,8 @@ function App() {
         <NavBar />
         {/* <div className="page"></div> */}
         <MapPage
-          crimeFilters={crimeFilters}
-          setCrimeFilters={setCrimeFilters}
+          weights={weights}
+          setWeights={setWeights}
           timeFilters={timeFilters}
           setTimeFilters={setTimeFilters}
         />
