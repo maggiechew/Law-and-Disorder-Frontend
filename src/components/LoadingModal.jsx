@@ -19,7 +19,7 @@ import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 export default function LoadingModal(props) {
   const [open, setOpen] = React.useState(true);
-  const blurLoading = props.blurLoading
+  const blurLoading = props.blurLoading;
   // const handleClose = () => {
   //   setOpen(false);
   // };
@@ -31,7 +31,8 @@ export default function LoadingModal(props) {
     <Backdrop
       sx={{
         backdropFilter: "blur(20px)",
-        zIndex: (theme) => theme.zIndex.drawer + 1,
+        // zIndex: (theme) => theme.zIndex.drawer + 1,
+        zIndex: 100,
       }}
       // sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
       open={open}

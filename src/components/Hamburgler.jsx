@@ -1,13 +1,13 @@
 import React from "react";
 import './Hamburgler.css'
 
-const Hamburgler = (props) => {
-  const setMenuClosed = props.setMenuClosed;
+function Hamburgler (props) {
+  const setMenuOpen = props.setMenuOpen;
   return (
     <div className="hamburgler_container">
       <input className='menu' type="checkbox" name="menu" id="menu" />
       <label className='hamburgler-label' htmlFor="menu">
-        <div onClick={() => setMenuClosed((curr) => !curr)}>
+        <div onClick={() => setMenuOpen((curr) => !curr)}>
           <svg
             className="hamburgler"
             viewBox="0 0 500 500"

@@ -1,0 +1,75 @@
+.about-us {
+  /* background-color: cyan; */
+  display: grid;
+  /* grid-template-rows: auto auto auto; */
+}
+
+.header {
+  grid-row: 1;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.frank {
+  /* grid-row: 2; */
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  /* border: solid black 5px; */
+  /* background-color: #c7c7c7; */
+  height: 820px;
+  overflow: auto;
+}
+
+.bios {
+  background-color: #fafafa;
+  display: grid;
+  grid-template-rows: 50% auto auto auto;
+  /* background-color: magenta; */
+  width: 50%;
+  max-width: 450px;
+  border: solid black 1px;
+}
+
+.photo {
+  grid-row: 1;
+    object-position: top 10px;
+
+}
+
+.titles {
+  grid-row: 2;
+  /* border: solid black 1px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.emmanuel {
+  display: flex;
+  align-content: end;
+  justify-content: end;
+  padding: 10px;
+  /* border: solid red 2px; */
+}
+.maggie {
+  display: flex;
+  align-content: end;
+  /* border: solid yellow 2px; */
+  padding: 10px;
+}
+.jenn {
+  display: flex;
+  /* align-content: end; */
+  justify-content: end;
+  /* border: solid green 2px; */
+  padding: 10px;
+}
+.jared {
+  display: flex;
+  /* border: solid blue 2px; */
+  padding: 10px;
+}
+
+.get-in-touch {
+    grid-row:4;
+}

@@ -1,0 +1,37 @@
+#filterbar {
+  z-index: 99;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  /* justify-items: end; */
+  /* grid-row: 1 ; */
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  /* width: 20%; */
+  /* min-width:350px; */
+  height: 50px;
+}
+
+#appbar {
+  /* justify-content: flex-end; */
+  /* background-color: white; */
+  /* color: red; */
+  /* min-width: 100px; */
+}
+
+.arrow-button {
+  color: black;
+  align-self: flex-end;
+}
+
+/* class = "arrow-button" */
+
+@media screen and (max-width: 35em) {
+  #filterbar {
+    /* display: flex;  */
+    width:100%;
+    /* justify-content: space-between; */
+    /* : update  */
+  }
+}

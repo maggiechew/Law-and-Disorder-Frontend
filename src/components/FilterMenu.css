@@ -1,0 +1,24 @@
+#filter-menu {
+  z-index: 99;
+  transition: all 2.2s cubic-bezier(.56,-0.67,.74,1.69
+  );
+  /* display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    /* justify-items: end; */
+  /* grid-row: 1 ; */
+  /* position: fixed;
+    bottom: 0;
+    right: 0; */
+  /* width: 20%; */
+  /* min-width:350px; */
+  /* height: 50px;  */
+}
+
+.filtermenu {
+  height: 0px;
+}
+
+.filtermenu.open {
+  height: 700px;
+}
