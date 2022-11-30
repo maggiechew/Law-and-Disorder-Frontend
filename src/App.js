@@ -13,12 +13,12 @@ function App() {
     assault: 0,
     bneStore: 0,
     bneHome: 1,
-    bneOther: 1,
-    robStreet: 1,
-    robStore: 1,
-    violence: 1,
-    robOfCar: 1,
-    robFromCar: 1,
+    bneOther: 0,
+    robStreet: 0,
+    robStore: 0,
+    violence: 0,
+    robOfCar: 0,
+    robFromCar: 0,
   });
   const [crimeFilters, setCrimeFilters] = useState(["assault"]);
   const [timeFilters, setTimeFilters] = useState(["winter"]);

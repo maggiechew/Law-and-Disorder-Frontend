@@ -14,23 +14,24 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import Slidebar from "./Slidebar.jsx";
 
 function FilterMenu(props) {
   const { crimeFilters, timeFilters, setCrimeFilters, setTimeFilters } = props;
 
   const [data, setData] = useState([]);
 
-  const potentialCrimes = [
-    "Assault (Non-domestic)",
-    "Break & Enter - Commercial",
-    "Break & Enter - Dwelling",
-    "Break & Enter - Other Premises",
-    "Commercial Robbery",
-    "Street Robbery",
-    "Theft From A Vehicle",
-    "Theft Of A Vehicle",
-    "Violence Other (Non-domestic)",
-  ];
+  const potentialCrimes = {
+    assault: "Assault (Non-domestic)",
+    bneStore: "Break & Enter - Commercial",
+    bneHome: "Break & Enter - Dwelling",
+    bneOther: "Break & Enter - Other Premises",
+    robStore: "Commercial Robbery",
+    robStreet: "Street Robbery",
+    robFromCar: "Theft From A Vehicle",
+    robOfCar: "Theft Of A Vehicle",
+    violence: "Violence Other (Non-domestic)",
+  };
   const potentialTimes = ["Fall", "Summer", "Spring", "Winter", "Any"];
 
   return (
@@ -74,8 +75,13 @@ function FilterMenu(props) {
               Crime Options
             </Typography>
             <ul>
-              {potentialCrimes.map((crime) => {
-                return <li key={crime}>{crime}</li>;
+              {Object.keys(potentialCrimes).map((crime) => {
+                return (
+                  <li key={potentialCrimes[crime]}>
+                    {`${potentialCrimes[crime]}\n`}
+                    <Slidebar />
+                  </li>
+                );
               })}
             </ul>
           </Card>
