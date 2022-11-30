@@ -14,9 +14,16 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import './FilterMenu.css'
 
 function FilterMenu(props) {
-  const { crimeFilters, timeFilters, setCrimeFilters, setTimeFilters } = props;
+  const {
+    crimeFilters,
+    timeFilters,
+    setCrimeFilters,
+    setTimeFilters,
+    className,
+  } = props;
 
   const [data, setData] = useState([]);
 
@@ -35,8 +42,10 @@ function FilterMenu(props) {
 
   return (
     <Card
+      // className='the-card'
       id="filter-menu"
       sx={[{ maxWidth: 1 / 3 }, { minWidth: 350 }, { width: 4 / 12 }]}
+      className={className}
     >
       {/* <Slide direction="up" in={menuOpen} mountOnEnter unmountOnExit></Slide> */}
       <CardContent>
