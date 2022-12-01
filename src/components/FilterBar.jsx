@@ -9,6 +9,8 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import "./FilterBar.css";
 
@@ -36,13 +38,13 @@ function FilterBar(props) {
         {menuOpen && (
           <BottomNavigationAction
             label="Hide Map Menu"
-            icon={<KeyboardArrowDownIcon />}
+            icon={<VisibilityOffIcon />}
           />
         )}
         {!menuOpen && (
           <BottomNavigationAction
             label="Show Map Menu"
-            icon={<KeyboardArrowUpIcon />}
+            icon={<RemoveRedEyeIcon />}
           />
         )}
       </BottomNavigation>
