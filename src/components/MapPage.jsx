@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterBar from "./FilterBar";
 import FilterMenu from "./FilterMenu";
 import Map from "./Map";
@@ -8,14 +8,25 @@ import "./MapPage.css";
 
 function MapPage(props) {
   const { timeFilters, weights, setWeights, setTimeFilters } = props;
-const tempTime = localStorage.getItem('times');
-const tempWeight = localStorage.getItem('weights');
+
+  const tempTime = JSON.parse(localStorage.getItem("times"));
+  const tempWeight = JSON.parse(localStorage.getItem("weights"));
+  useEffect(() => {
+    if (tempWeight) {
+      setWeights(tempWeight);
+    }
+    if (tempTime) {
+      setTimeFilters(tempTime);
+    }
+    // eslint-ignore react-hooks/exhaustive-deps
+  }, []);
+
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-    {!tempTime | !tempWeight &&
-      <LoadingModal setWeights={setWeights} setTimeFilters={setTimeFilters} />
-}
+      {!tempTime | !tempWeight && (
+        <LoadingModal setWeights={setWeights} setTimeFilters={setTimeFilters} />
+      )}
       <div className="map-page">
         <Map timeFilters={timeFilters} weights={weights} />
         <FilterBar

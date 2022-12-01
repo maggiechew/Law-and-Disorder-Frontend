@@ -12,29 +12,13 @@ import AdditionalResources from "./components/AdditionalResources";
 
 function App() {
   // const [blurLoading, setBlurLoading] = useState(true);
-  const [weights, setWeights] = useState({
-    assault: 0,
-    bneStore: 0,
-    bneHome: 0,
-    bneOther: 0,
-    robStreet: 1,
-    robStore: 0,
-    violence: 0,
-    robOfCar: 0,
-    robFromCar: 0,
-  });
+  const [weights, setWeights] = useState({});
   // const [crimeFilters, setCrimeFilters] = useState(["assault"]);
-  const [timeFilters, setTimeFilters] = useState([
-    "winter",
-    "summer",
-    "spring",
-    "fall",
-  ]);
+  const [timeFilters, setTimeFilters] = useState([]);
   // console.log(menuOpen);
 
   return (
     <>
-      {console.log(weights, timeFilters)}
       <div className="App">
         <NavBar />
         <Routes>
