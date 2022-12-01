@@ -135,6 +135,35 @@ export default function Map(props) {
         //   },
         // });
 
+        dataValue?.features?.forEach((marker) => {
+          console.log(marker);
+          if (marker.properties.communityCentre) {
+            let longLat = marker.properties.communityCentre;
+            console.log(longLat);
+            const newMarker = new mapboxgl.Marker()
+              .setLngLat([longLat.long, longLat.lat])
+              .addTo(map)
+              .setPopup(
+                new mapboxgl.Popup({ offset: 25 }).setHTML(
+                  `<div style="border-radius: 50%"><h3>${
+                    marker.properties.name
+                  }<br><strong>Sector: </strong>${marker.properties.class}<br>Crime Score:${marker.properties.crimeScore.toFixed(
+                    2
+                  )
+                }</h3></div>`
+                )
+              );
+            // make marker only visible at zoom level 16
+            newMarker.getElement().style.display = "none";
+            map.on("zoom", () => {
+              if (map.getZoom() >= 12) {
+                newMarker.getElement().style.display = "block";
+              } else {
+                newMarker.getElement().style.display = "none";
+              }
+            });
+          }
+        })
         map.addLayer(
           {
             id: "crime-point",
