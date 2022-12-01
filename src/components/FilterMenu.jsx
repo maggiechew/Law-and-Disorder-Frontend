@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -16,10 +16,29 @@ import "./FilterMenu.css";
 
 import Slidebar from "./Slidebar.jsx";
 
+const potentialCrimes = {
+  assault: "Assault (Non-domestic)",
+  bneStore: "Break & Enter - Commercial",
+  bneHome: "Break & Enter - Dwelling",
+  bneOther: "Break & Enter - Other Premises",
+  robStore: "Commercial Robbery",
+  robStreet: "Street Robbery",
+  robFromCar: "Theft From A Vehicle",
+  robOfCar: "Theft Of A Vehicle",
+  violence: "Violence Other (Non-domestic)",
+};
+
+const potentialTimes = ["Fall", "Summer", "Spring", "Winter"];
+
 function FilterMenu(props) {
   const { weights, timeFilters, setWeights, setTimeFilters, className } = props;
   const [tempWeights, setTempWeights] = useState(weights);
   const [tempTime, setTempTime] = useState(timeFilters);
+
+  useEffect(() => {
+    setTempTime(timeFilters);
+    setTempWeights(weights);
+  }, [weights, timeFilters]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,44 +49,17 @@ function FilterMenu(props) {
     localStorage.removeItem("times");
     localStorage.setItem("times", JSON.stringify(tempTime));
   };
-  const handleFilters = (event) => {
-    setTempTime([]);
-    const fallCheck = document.getElementById("Fall");
-    const winterCheck = document.getElementById("Winter");
-    const summerCheck = document.getElementById("Summer");
-    const springCheck = document.getElementById("Spring");
-    if (fallCheck.checked) {
-      setTempTime((tempTime) => [...tempTime, "fall"]);
-    }
-    if (winterCheck.checked) {
-      setTempTime((tempTime) => [...tempTime, "winter"]);
-    }
-    if (springCheck.checked) {
-      setTempTime((tempTime) => [...tempTime, "spring"]);
-    }
-    if (summerCheck.checked) {
-      setTempTime((tempTime) => [...tempTime, "summer"]);
+  const handleFilters = (time) => {
+    if (tempTime.includes(time.toLowerCase())) {
+      setTempTime((current) =>
+        current.filter(function (t) {
+          return t !== time.toLowerCase();
+        })
+      );
+    } else {
+      setTempTime((curTempTime) => [...curTempTime, time.toLowerCase()]);
     }
   };
-
-  const [potentialCrimes, setPotentialCrimes] = useState({
-    assault: "Assault (Non-domestic)",
-    bneStore: "Break & Enter - Commercial",
-    bneHome: "Break & Enter - Dwelling",
-    bneOther: "Break & Enter - Other Premises",
-    robStore: "Commercial Robbery",
-    robStreet: "Street Robbery",
-    robFromCar: "Theft From A Vehicle",
-    robOfCar: "Theft Of A Vehicle",
-    violence: "Violence Other (Non-domestic)",
-  });
-
-  const [potentialTimes, setPotentialTimes] = useState([
-    "Fall",
-    "Summer",
-    "Spring",
-    "Winter",
-  ]);
 
   return (
     <Card
@@ -190,9 +182,10 @@ function FilterMenu(props) {
                 /* {<label> 
                  <input
                     type="checkbox"
-                    onClick={handleFilters}
+                    onChange={() => handleFilters(time)}
                     id={time}
                     key={time}
+                    checked={tempTime.includes(time.toLowerCase())}
                   />
                   {time}
                   <br />{" "}

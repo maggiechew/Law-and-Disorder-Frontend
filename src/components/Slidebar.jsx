@@ -1,21 +1,19 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
-import MuiInput from "@mui/material/Input";
-
-const Input = styled(MuiInput)`
-  width: 42px;
-`;
 
 export default function InputSlider(props) {
   const { tempWeights, setTempWeights, crime, potentialCrimes } = props;
   const [value, setValue] = React.useState(tempWeights[crime]);
   // console.log(weights);
   // console.log(crime);
-  // console.log(potentialCrimes);
+  // console.log(potentialCrimes)
+
+  React.useEffect(() => {
+    setValue(tempWeights[crime]);
+  }, [tempWeights, crime]);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
@@ -49,70 +47,6 @@ export default function InputSlider(props) {
         break;
       default:
         break;
-    }
-  };
-
-  const handleInputChange = (event) => {
-    setValue(event.target.value === "" ? "" : Number(event.target.value));
-    switch (crime) {
-      case "assault":
-        setTempWeights({ ...tempWeights, assault: Number(event.target.value) });
-        break;
-      case "bneStore":
-        setTempWeights({
-          ...tempWeights,
-          bneStore: Number(event.target.value),
-        });
-        break;
-      case "bneHome":
-        setTempWeights({ ...tempWeights, bneHome: Number(event.target.value) });
-        break;
-      case "bneOther":
-        setTempWeights({
-          ...tempWeights,
-          bneOther: Number(event.target.value),
-        });
-        break;
-      case "robFromCar":
-        setTempWeights({
-          ...tempWeights,
-          robFromCar: Number(event.target.value),
-        });
-        break;
-      case "robOfCar":
-        setTempWeights({
-          ...tempWeights,
-          robOfCar: Number(event.target.value),
-        });
-        break;
-      case "robStreet":
-        setTempWeights({
-          ...tempWeights,
-          robStreet: Number(event.target.value),
-        });
-        break;
-      case "robStore":
-        setTempWeights({
-          ...tempWeights,
-          robStore: Number(event.target.value),
-        });
-        break;
-      case "violence":
-        setTempWeights({
-          ...tempWeights,
-          violence: Number(event.target.value),
-        });
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleBlur = () => {
-    if (value < 0) {
-      setValue(0);
-    } else if (value > 10) {
-      setValue(10);
     }
   };
 

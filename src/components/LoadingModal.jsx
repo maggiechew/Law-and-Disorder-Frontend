@@ -70,19 +70,19 @@ export default function LoadingModal(props) {
         setWeights(touristWeight);
         setTimeFilters(touristTime);
         localStorage.setItem("weights", JSON.stringify(touristWeight));
-        localStorage.setItem("times", touristTime);
+        localStorage.setItem("times", JSON.stringify(touristTime));
         break;
       case "homebuyer":
         setWeights(homebuyerWeight);
         setTimeFilters(homebuyerTime);
         localStorage.setItem("weights", JSON.stringify(homebuyerWeight));
-        localStorage.setItem("times", homebuyerTime);
+        localStorage.setItem("times", JSON.stringify(homebuyerTime));
         break;
       case "communityMember":
         setWeights(communityMemberWeight);
         setTimeFilters(communityMemberTime);
         localStorage.setItem("weights", JSON.stringify(communityMemberWeight));
-        localStorage.setItem("times", communityMemberTime);
+        localStorage.setItem("times", JSON.stringify(communityMemberTime));
         break;
       default:
         break;
