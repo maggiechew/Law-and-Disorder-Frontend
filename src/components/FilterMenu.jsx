@@ -11,6 +11,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import Box from '@mui/material/Box';
+
 
 import "./FilterMenu.css";
 
@@ -41,7 +43,7 @@ function FilterMenu(props) {
   }, [weights, timeFilters]);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setWeights(tempWeights);
     setTimeFilters(tempTime);
     localStorage.removeItem("weights");
@@ -135,7 +137,7 @@ function FilterMenu(props) {
             {/* TODO: update link https://data.calgary.ca/Health-and-Safety/Community-Crime-Statistics/78gh-n26t */}
           </AccordionDetails>
         </Accordion>
-        <form>
+        <Box component='form'>
           <Accordion
             sx={[{ p: 0 }, { m: 0 }]}
             TransitionProps={{ unmountOnExit: true }}
@@ -168,17 +170,29 @@ function FilterMenu(props) {
               </ul>
             </AccordionDetails>
           </Accordion>
-
-          <Card className="inputCard" sx={{ mt: 2 }}>
+          <Accordion
+            sx={[{ p: 0 }, { m: 0 }]}
+            TransitionProps={{ unmountOnExit: true }}
+            defaultExpanded={true}
+            className="hello-there"
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+          {/* <Card className="inputCard" sx={{ mt: 2 }}> */}
             <Typography gutterBottom component="div">
               Season Options
             </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
             <FormGroup>
  
             {potentialTimes.map((time) => {
               return (
-                <FormControlLabel onChange={handleFilters} 
-                    key={time} control={<Checkbox defaultChecked id={time}/>} label={time} />
+                <FormControlLabel  
+                    key={time} control={<Checkbox onChange={() => handleFilters(time)} checked={tempTime.includes(time.toLowerCase())} id={time}/>} label={time} />
                 /* {<label> 
                  <input
                     type="checkbox"
@@ -194,10 +208,13 @@ function FilterMenu(props) {
               );
             })}
             </FormGroup>
-          </Card>
-            <button onClick={handleSubmit}>Submit</button>
+            </AccordionDetails>
+          </Accordion>
+          {/* </Card> */}
+          <Button variant="contained" onClick={() => {handleSubmit()}}>Contained</Button>
+            {/* <button onClick={handleSubmit}>Submit</button> */}
 
-        </form>
+        </Box>
        
       </CardContent>
       <CardActions></CardActions>
