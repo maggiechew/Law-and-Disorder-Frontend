@@ -28,7 +28,6 @@ export default function Map(props) {
   //   };
   // }, []);
   const { timeFilters, weights } = props;
-  console.log(weights);
   const [dataValue, setDataValue] = useState([]);
 
   useEffect(() => {
