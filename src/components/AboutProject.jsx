@@ -11,7 +11,7 @@ function AboutProject() {
         <img className="about-logo" src={logo} alt="Law-and-Disorder-Logo" />
       </div>
       <div className="project-detail-content">
-        <div className="content">
+        <div className="project-content">
           <Typography variant="h4" gutterbottom>
             Our Mission
             <hr />
@@ -28,7 +28,7 @@ function AboutProject() {
           </Typography>
         </div>
         <br />
-        <div className="content">
+        <div className="project-content">
           <Typography variant="h4" gutterbottom>
             How It Works
             <hr />
