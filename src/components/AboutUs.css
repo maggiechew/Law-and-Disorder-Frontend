@@ -1,4 +1,5 @@
 .about-us {
+  grid-row: 2/4;
   /* background-color: cyan; */
   display: grid;
   /* grid-template-rows: auto auto auto; */
@@ -21,7 +22,7 @@
   /* z-index: 98; */
   display: flex;
   justify-content: flex-end;
-  justify-self:center;
+  justify-self: center;
   width: 75%;
   grid-row: 2;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -38,7 +39,7 @@
   padding-top: 0.75em;
   margin: 0;
   background-color: #42a5f5;
-  color:white;
+  color: white;
   /* text-decoration: none;
   text-align: center;
   font-family: "Unna"; */
@@ -51,30 +52,66 @@
   grid-template-rows: auto auto;
   /* border: solid black 5px; */
   /* background-color: #c7c7c7; */
-  height: 720px;
+  height: 1000px;
   overflow: auto;
-  padding-top: 10px
+  padding-top: 10px;
 }
 .frank2 {
   /* grid-row: 2; */
-  display: block;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /* height: 500px; */
+
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: flex-start; */
+
+  /* margin: auto; */
   /* grid-template-columns: auto auto; */
-  
+
   justify-content: center;
-  /* border: solid black 5px; */
+  border: solid black 5px;
   /* background-color: #c7c7c7; */
-  height: 700px;
+  height: 1000px;
   overflow: auto;
-  padding-top: 10px
+  padding-top: 10px;
 }
 
 .frank2 > img {
   align-self: centre;
+  margin:auto;
   border: solid black 2px;
 }
 
-.test {
-border: solid red 2px;
+.project-detail-content {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: space-evenly; */
+  grid-row: 2;
+  border: solid red 2px;
+  background-color: #42a5f5;
+  width: 1000px;
+}
+
+.content {
+/* border: solid yellow 10px; */
+margin: 10px;
+}
+
+
+.banana {
+  display:flex;
+  grid-row: 1;
+align-items:center;
+justify-content: center;
+  /* border: solid green 5px; */
+  height: 450px;
+}
+
+.about-logo {
+  width: 100%;
+  max-width: 800px;
 }
 
 .bios {
@@ -127,4 +164,11 @@ border: solid red 2px;
 
 .get-in-touch {
   grid-row: 4;
+}
+#krang {
+  /* overflow: hidden; */
+  /* position: relative; */
+  /* display: inline-block; */
+  color:pink;
+  text-decoration: none;
 }
