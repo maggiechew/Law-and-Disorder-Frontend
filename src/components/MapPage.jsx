@@ -10,7 +10,6 @@ function MapPage(props) {
   const { timeFilters, weights, setWeights, setTimeFilters } = props;
 
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(weights);
   return (
     <>
       <LoadingModal setWeights={setWeights} />
@@ -25,7 +24,7 @@ function MapPage(props) {
         <FilterMenu
           id="filter-menu"
           {...props}
-          className={menuOpen ? "filtermenu open" : "filtermenu" }
+          className={menuOpen ? "filtermenu open" : "filtermenu"}
         />
         ;
       </div>
