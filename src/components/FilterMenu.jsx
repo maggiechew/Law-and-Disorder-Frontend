@@ -31,16 +31,20 @@ function FilterMenu(props) {
   };
   const handleFilters = (event) => {
     setTempTime([]);
-    if (event) {
+    const fallCheck = document.getElementById("Fall");
+    const winterCheck = document.getElementById("Winter");
+    const summerCheck = document.getElementById("Summer");
+    const springCheck = document.getElementById("Spring");
+    if (fallCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "fall"]);
     }
-    if (event) {
+    if (winterCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "winter"]);
     }
-    if (event) {
+    if (springCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "spring"]);
     }
-    if (event) {
+    if (summerCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "summer"]);
     }
   };
@@ -102,36 +106,37 @@ function FilterMenu(props) {
           </AccordionDetails>
         </Accordion>
         <form>
-
-        <Accordion
-          sx={[{ p: 0 }, { m: 0 }]}
-          TransitionProps={{ unmountOnExit: true }}
-          defaultExpanded={true}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
+          <Accordion
+            sx={[{ p: 0 }, { m: 0 }]}
+            TransitionProps={{ unmountOnExit: true }}
+            defaultExpanded={true}
           >
-            <Typography gutterBottom variant="h6" component="div">Crime Options</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <ul>
-              {Object.keys(potentialCrimes).map((crime) => {
-                return (
-                  <li key={potentialCrimes[crime]}>
-                    <Slidebar
-                      tempWeights={tempWeights}
-                      setTempWeights={setTempWeights}
-                      crime={crime}
-                      potentialCrimes={potentialCrimes}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          </AccordionDetails>
-        </Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography gutterBottom variant="h6" component="div">
+                Crime Options
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <ul>
+                {Object.keys(potentialCrimes).map((crime) => {
+                  return (
+                    <li key={potentialCrimes[crime]}>
+                      <Slidebar
+                        tempWeights={tempWeights}
+                        setTempWeights={setTempWeights}
+                        crime={crime}
+                        potentialCrimes={potentialCrimes}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </AccordionDetails>
+          </Accordion>
 
           <Card className="inputCard" sx={{ mt: 2 }}>
             <Typography gutterBottom variant="h6" component="div">
@@ -142,9 +147,9 @@ function FilterMenu(props) {
               return (
                 <label>
                   <input
-                    type="radio"
-                    // onChange={handleFilters}
-                    value={time}
+                    type="checkbox"
+                    onClick={handleFilters}
+                    id={time}
                     key={time}
                   />
                   {time}
