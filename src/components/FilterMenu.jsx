@@ -27,7 +27,7 @@ function FilterMenu(props) {
     setWeights(tempWeights);
     setTimeFilters(tempTime);
     localStorage.removeItem("weights");
-    localStorage.setItem("weights", JSON.stringify(weights));
+    localStorage.setItem("weights", JSON.stringify(tempWeights));
   };
   const handleFilters = (event) => {
     setTempTime([]);
@@ -85,7 +85,7 @@ function FilterMenu(props) {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>How To Use This Menu</Typography>
+            <Typography >How To Use This Menu</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -102,39 +102,41 @@ function FilterMenu(props) {
           </AccordionDetails>
         </Accordion>
         <form>
-
-        <Accordion
-          sx={[{ p: 0 }, { m: 0 }]}
-          TransitionProps={{ unmountOnExit: true }}
-          defaultExpanded={true}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
+          <Accordion
+            sx={[{ p: 0 }, { m: 0 }]}
+            TransitionProps={{ unmountOnExit: true }}
+            defaultExpanded={true}
+            className="hello-there"
           >
-            <Typography gutterBottom variant="h6" component="div">Crime Options</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <ul>
-              {Object.keys(potentialCrimes).map((crime) => {
-                return (
-                  <li key={potentialCrimes[crime]}>
-                    <Slidebar
-                      tempWeights={tempWeights}
-                      setTempWeights={setTempWeights}
-                      crime={crime}
-                      potentialCrimes={potentialCrimes}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          </AccordionDetails>
-        </Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography gutterBottom component="div">
+                Crime Options
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <ul>
+                {Object.keys(potentialCrimes).map((crime) => {
+                  return (
+                    <li key={potentialCrimes[crime]}>
+                      <Slidebar
+                        tempWeights={tempWeights}
+                        setTempWeights={setTempWeights}
+                        crime={crime}
+                        potentialCrimes={potentialCrimes}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </AccordionDetails>
+          </Accordion>
 
           <Card className="inputCard" sx={{ mt: 2 }}>
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography gutterBottom component="div">
               Season Options
             </Typography>
 
