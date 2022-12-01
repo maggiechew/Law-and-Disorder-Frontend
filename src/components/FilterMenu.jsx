@@ -8,7 +8,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Slide from "@mui/material/Slide";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -16,29 +15,37 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import './FilterMenu.css'
 
+import Slidebar from "./Slidebar.jsx";
+
 function FilterMenu(props) {
-  const {
-    crimeFilters,
-    timeFilters,
-    setCrimeFilters,
-    setTimeFilters,
-    className,
-  } = props;
+  const { weights, timeFilters, setWeights, setTimeFilters, className } = props;
+  const [tempWeights, setTempWeights] = useState(weights);
 
-  const [data, setData] = useState([]);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setWeights(tempWeights);
+    localStorage.removeItem("weights");
+    localStorage.setItem("weights", JSON.stringify(weights));
+  };
+  const [potentialCrimes, setPotentialCrimes] = useState({
+    assault: "Assault (Non-domestic)",
+    bneStore: "Break & Enter - Commercial",
+    bneHome: "Break & Enter - Dwelling",
+    bneOther: "Break & Enter - Other Premises",
+    robStore: "Commercial Robbery",
+    robStreet: "Street Robbery",
+    robFromCar: "Theft From A Vehicle",
+    robOfCar: "Theft Of A Vehicle",
+    violence: "Violence Other (Non-domestic)",
+  });
 
-  const potentialCrimes = [
-    "Assault (Non-domestic)",
-    "Break & Enter - Commercial",
-    "Break & Enter - Dwelling",
-    "Break & Enter - Other Premises",
-    "Commercial Robbery",
-    "Street Robbery",
-    "Theft From A Vehicle",
-    "Theft Of A Vehicle",
-    "Violence Other (Non-domestic)",
-  ];
-  const potentialTimes = ["Fall", "Summer", "Spring", "Winter", "Any"];
+  const [potentialTimes, setPotentialTimes] = useState([
+    "Fall",
+    "Summer",
+    "Spring",
+    "Winter",
+    "Any",
+  ]);
 
   return (
     <Card
@@ -83,8 +90,17 @@ function FilterMenu(props) {
               Crime Options
             </Typography>
             <ul>
-              {potentialCrimes.map((crime) => {
-                return <li key={crime}>{crime}</li>;
+              {Object.keys(potentialCrimes).map((crime) => {
+                return (
+                  <li key={potentialCrimes[crime]}>
+                    <Slidebar
+                      tempWeights={tempWeights}
+                      setTempWeights={setTempWeights}
+                      crime={crime}
+                      potentialCrimes={potentialCrimes}
+                    />
+                  </li>
+                );
               })}
             </ul>
           </Card>
@@ -106,7 +122,7 @@ function FilterMenu(props) {
           </Card>
 
           <Card sx={{ mt: 2 }}>
-            <button>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
           </Card>
         </form>
 

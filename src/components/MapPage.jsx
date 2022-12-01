@@ -7,9 +7,10 @@ import "./MapPage.css";
 //TODO: animations?? transitions??
 
 function MapPage(props) {
-  const { timeFilters, weights, setWeights } = props;
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { timeFilters, weights, setWeights, setTimeFilters } = props;
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  console.log(weights);
   return (
     <>
       <LoadingModal setWeights={setWeights} />
