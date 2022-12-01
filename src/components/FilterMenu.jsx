@@ -13,20 +13,38 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import './FilterMenu.css'
+import "./FilterMenu.css";
 
 import Slidebar from "./Slidebar.jsx";
 
 function FilterMenu(props) {
   const { weights, timeFilters, setWeights, setTimeFilters, className } = props;
   const [tempWeights, setTempWeights] = useState(weights);
+  const [tempTime, setTempTime] = useState(timeFilters);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setWeights(tempWeights);
+    setTimeFilters(tempTime);
     localStorage.removeItem("weights");
     localStorage.setItem("weights", JSON.stringify(weights));
   };
+  const handleFilters = (event) => {
+    setTempTime([]);
+    if (event) {
+      setTempTime((tempTime) => [...tempTime, "fall"]);
+    }
+    if (event) {
+      setTempTime((tempTime) => [...tempTime, "winter"]);
+    }
+    if (event) {
+      setTempTime((tempTime) => [...tempTime, "spring"]);
+    }
+    if (event) {
+      setTempTime((tempTime) => [...tempTime, "summer"]);
+    }
+  };
+
   const [potentialCrimes, setPotentialCrimes] = useState({
     assault: "Assault (Non-domestic)",
     bneStore: "Break & Enter - Commercial",
@@ -44,7 +62,6 @@ function FilterMenu(props) {
     "Summer",
     "Spring",
     "Winter",
-    "Any",
   ]);
 
   return (
@@ -85,10 +102,20 @@ function FilterMenu(props) {
           </AccordionDetails>
         </Accordion>
         <form>
-          <Card className="radio" sx={{ mt: 2 }}>
-            <Typography gutterBottom variant="h6" component="div">
-              Crime Options
-            </Typography>
+
+        <Accordion
+          sx={[{ p: 0 }, { m: 0 }]}
+          TransitionProps={{ unmountOnExit: true }}
+          defaultExpanded={true}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography gutterBottom variant="h6" component="div">Crime Options</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <ul>
               {Object.keys(potentialCrimes).map((crime) => {
                 return (
@@ -103,9 +130,10 @@ function FilterMenu(props) {
                 );
               })}
             </ul>
-          </Card>
+          </AccordionDetails>
+        </Accordion>
 
-          <Card className="radio" sx={{ mt: 2 }}>
+          <Card className="inputCard" sx={{ mt: 2 }}>
             <Typography gutterBottom variant="h6" component="div">
               Season Options
             </Typography>
@@ -113,7 +141,12 @@ function FilterMenu(props) {
             {potentialTimes.map((time) => {
               return (
                 <label>
-                  <input type="radio" value={time} key={time} />
+                  <input
+                    type="radio"
+                    // onChange={handleFilters}
+                    value={time}
+                    key={time}
+                  />
                   {time}
                   <br />{" "}
                 </label>
@@ -125,9 +158,8 @@ function FilterMenu(props) {
             <button onClick={handleSubmit}>Submit</button>
           </Card>
         </form>
-
         <FormControl>
-          <FormLabel className="radio">Season Options</FormLabel>
+          <FormLabel className="inputCard">Season Options</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"

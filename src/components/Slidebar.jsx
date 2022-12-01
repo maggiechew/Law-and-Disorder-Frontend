@@ -47,6 +47,8 @@ export default function InputSlider(props) {
       case "violence":
         setTempWeights({ ...tempWeights, violence: newValue });
         break;
+      default:
+        break;
     }
   };
 
@@ -100,6 +102,8 @@ export default function InputSlider(props) {
           ...tempWeights,
           violence: Number(event.target.value),
         });
+        break;
+      default:
         break;
     }
   };

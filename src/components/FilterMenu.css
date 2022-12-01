@@ -20,5 +20,18 @@
 }
 
 .filtermenu.open {
-  height: 700px;
+  height: 1000px;
+  overflow:scroll;
+}
+
+.inputCard {
+  padding-left: 10px;
+}
+
+li {
+  padding-left:50px;
+}
+
+ul {
+  list-style:none;
 }
