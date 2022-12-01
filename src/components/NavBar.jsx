@@ -1,18 +1,11 @@
 //TODO: https://mui.com/material-ui/react-drawer/#main-content is this better?
 
 import React, { useState } from "react";
-import GlobalStyles from "@mui/material/GlobalStyles";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import Hamburgler from "./Hamburgler";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  NavLink,
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
@@ -22,12 +15,12 @@ function NavBar() {
     <nav id="navbar">
       {menuOpen && (
         <ul className="nav-links">
-          <li key={'crime-map'}>
+          <li key={"crime-map"}>
             <NavLink
               to="/"
-              style={{textDecoration: 'none'}}
-              className={(isActive) =>
-                "nav-link" + (!isActive ? "unselected" : "")
+              style={{ textDecoration: "none" }}
+              className={
+                (isActive) => "nav-link" + (!isActive ? "unselected" : "")
                 //TODO: Active Styling Option
               }
               activeStyle={{ fontWeight: "bold" }}
@@ -37,10 +30,10 @@ function NavBar() {
               </Typography>
             </NavLink>
           </li>
-          <li key={'about-us'}>
-          <NavLink
+          <li key={"about-us"}>
+            <NavLink
               to="/about-us"
-              style={{textDecoration: 'none'}}
+              style={{ textDecoration: "none" }}
               className={(isActive) =>
                 "nav-link" + (!isActive ? "unselected" : "")
               }
@@ -51,10 +44,10 @@ function NavBar() {
               </Typography>
             </NavLink>
           </li>
-          <li key={'additional-resources'}>
-          <NavLink
+          <li key={"additional-resources"}>
+            <NavLink
               to="/additional-resources"
-              style={{textDecoration: 'none'}}
+              style={{ textDecoration: "none" }}
               className={(isActive) =>
                 "nav-link" + (!isActive ? "unselected" : "")
               }

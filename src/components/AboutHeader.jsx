@@ -1,17 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  NavLink,
-} from "react-router-dom";
 import Button from "@mui/material/Button";
-// import BioCards from "./BioCards";
 
-// import "./AboutUs.css";
-// import AboutProject from "./AboutProject";
 
 function AboutHeader(props) {
   const {setAboutProject, aboutProject} = props;

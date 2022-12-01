@@ -1,6 +1,4 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import Typography from "@mui/material/Typography";

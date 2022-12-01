@@ -18,8 +18,7 @@ function MapPage(props) {
     if (tempTime) {
       setTimeFilters(tempTime);
     }
-    // eslint-ignore react-hooks/exhaustive-deps
-  }, []);
+  }, [setTimeFilters, setWeights, tempTime, tempWeight]);
 
   const [menuOpen, setMenuOpen] = useState(false);
   return (

@@ -2,10 +2,8 @@
 import "./App.css";
 
 import NavBar from "./components/NavBar";
-import Hamburgler from "./components/Hamburgler";
 import { useState } from "react";
-import LoadingModal from "./components/LoadingModal";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import MapPage from "./components/MapPage";
 import AboutUs from "./components/AboutUs";
 import AdditionalResources from "./components/AdditionalResources";

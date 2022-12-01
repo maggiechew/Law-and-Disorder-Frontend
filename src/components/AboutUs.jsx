@@ -1,12 +1,4 @@
 import React, {useState} from "react";
-import Typography from "@mui/material/Typography";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  NavLink,
-} from "react-router-dom";
 import BioCards from "./BioCards";
 
 import "./AboutUs.css";

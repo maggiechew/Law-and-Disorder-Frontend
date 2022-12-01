@@ -95,6 +95,8 @@ function FilterMenu(props) {
               <br />
               Click submit to see your changes
               <br />
+              Zoom in to see more details about specific communities.
+              <br />
               <Button size="small">Learn More</Button>
               {/* TODO: link to about us */}
             </Typography>
