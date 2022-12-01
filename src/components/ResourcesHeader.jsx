@@ -7,7 +7,7 @@ function ResourcesHeader() {
       <div className="resource-header">
         <div className="page-title">
           <Typography variant="h3" gutterbottom>
-            About This Project
+            Additional Resources
           </Typography>
         </div>
       </div>
