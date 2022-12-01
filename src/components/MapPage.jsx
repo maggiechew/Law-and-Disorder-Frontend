@@ -29,17 +29,17 @@ function MapPage(props) {
       )}
       <div className="map-page">
         <Map timeFilters={timeFilters} weights={weights} />
-        <FilterBar
-          className="filter-bar"
-          setMenuOpen={setMenuOpen}
-          menuOpen={menuOpen}
-        />
         <FilterMenu
           id="filter-menu"
           {...props}
           className={menuOpen ? "filtermenu open" : "filtermenu"}
         />
-        ;
+        <FilterBar
+          className="filter-bar"
+          setMenuOpen={setMenuOpen}
+          menuOpen={menuOpen}
+        />
+        
       </div>
     </>
   );
