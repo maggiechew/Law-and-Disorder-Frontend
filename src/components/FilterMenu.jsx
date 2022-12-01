@@ -13,10 +13,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import './FilterMenu.css'
+
 import Slidebar from "./Slidebar.jsx";
 
 function FilterMenu(props) {
-  const { weights, timeFilters, setWeights, setTimeFilters } = props;
+  const { weights, timeFilters, setWeights, setTimeFilters, className } = props;
   const [tempWeights, setTempWeights] = useState(weights);
 
   const handleSubmit = (event) => {
@@ -47,8 +49,10 @@ function FilterMenu(props) {
 
   return (
     <Card
+      // className='the-card'
       id="filter-menu"
       sx={[{ maxWidth: 1 / 3 }, { minWidth: 350 }, { width: 4 / 12 }]}
+      className={className}
     >
       {/* <Slide direction="up" in={menuOpen} mountOnEnter unmountOnExit></Slide> */}
       <CardContent>

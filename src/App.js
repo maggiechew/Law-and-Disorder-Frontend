@@ -1,11 +1,14 @@
 // import logo from "./Law&DisOrderLogoV11_Horizontal.png";
 import "./App.css";
+
 import NavBar from "./components/NavBar";
 import Hamburgler from "./components/Hamburgler";
 import { useState } from "react";
-// import MainLayoutPage from "./components/MainLayoutPage";
 import LoadingModal from "./components/LoadingModal";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MapPage from "./components/MapPage";
+import AboutUs from "./components/AboutUs";
+import AdditionalResources from "./components/AdditionalResources";
 
 function App() {
   // const [blurLoading, setBlurLoading] = useState(true);
@@ -20,24 +23,25 @@ function App() {
     robOfCar: 0,
     robFromCar: 0,
   });
-  const [crimeFilters, setCrimeFilters] = useState(["assault"]);
+  // const [crimeFilters, setCrimeFilters] = useState(["assault"]);
   const [timeFilters, setTimeFilters] = useState(["winter"]);
   // console.log(menuOpen);
 
   return (
     <>
-      <LoadingModal setCrimeFilters={setCrimeFilters} />
       <div className="App">
-        {/* <img src={logo} alt="Law & DisOrder Logo V11" /> */}
-        <NavBar />
-        {/* <div className="page"></div> */}
-        <MapPage
+      <NavBar />
+      <Routes>
+        <Route path = "/" element= {<MapPage
           weights={weights}
           setWeights={setWeights}
           timeFilters={timeFilters}
           setTimeFilters={setTimeFilters}
-        />
-        {/* <MainLayoutPage /> */}
+        />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/additional-resources' element={<AdditionalResources />} />
+        </Routes>
+        
       </div>
     </>
   );
