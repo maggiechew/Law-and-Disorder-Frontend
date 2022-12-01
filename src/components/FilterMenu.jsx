@@ -31,16 +31,20 @@ function FilterMenu(props) {
   };
   const handleFilters = (event) => {
     setTempTime([]);
-    if (event) {
+    const fallCheck = document.getElementById("Fall");
+    const winterCheck = document.getElementById("Winter");
+    const summerCheck = document.getElementById("Summer");
+    const springCheck = document.getElementById("Spring");
+    if (fallCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "fall"]);
     }
-    if (event) {
+    if (winterCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "winter"]);
     }
-    if (event) {
+    if (springCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "spring"]);
     }
-    if (event) {
+    if (summerCheck.checked) {
       setTempTime((tempTime) => [...tempTime, "summer"]);
     }
   };
@@ -144,9 +148,9 @@ function FilterMenu(props) {
               return (
                 <label>
                   <input
-                    type="radio"
-                    // onChange={handleFilters}
-                    value={time}
+                    type="checkbox"
+                    onClick={handleFilters}
+                    id={time}
                     key={time}
                   />
                   {time}
