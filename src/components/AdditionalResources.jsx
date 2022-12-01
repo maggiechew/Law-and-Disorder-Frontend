@@ -11,12 +11,14 @@ import "./Resources.css";
 
 function AdditionalResources() {
   return (
-    <div>
+    <div className="ur-mom">
       <ResourcesHeader />
-    <div className="krang">
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vROpwbUBONEsumdnbV6bwCIUe2badiHz41NCEM3YvtLZDRFTI_raDjfzZjLa-61fBCvQVVwHSegI7Bs/pubhtml?widget=true&amp;headers=false"></iframe>
-</div>
-      
+      <div className="krang">
+        <iframe
+          title="mypage"
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSnKwPx18oS1Em_FHu6-xa8_wWGPLFwsBw_LPAY26vbEdumipcSVNshEtfctCQgiw/pubhtml?widget=true&amp;headers=false"
+        ></iframe>
+      </div>
     </div>
   );
 }

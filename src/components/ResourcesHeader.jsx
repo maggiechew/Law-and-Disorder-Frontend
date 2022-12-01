@@ -9,6 +9,9 @@ function ResourcesHeader() {
           <Typography variant="h3" gutterbottom>
             Additional Resources
           </Typography>
+          <Typography variant="subtitle1" gutterbottom>
+            Please check out these resources to see what's available online!
+          </Typography>
         </div>
       </div>
     </div>
