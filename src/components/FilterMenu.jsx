@@ -8,11 +8,10 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import Box from '@mui/material/Box';
-
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Box from "@mui/material/Box";
 
 import "./FilterMenu.css";
 
@@ -119,16 +118,16 @@ function FilterMenu(props) {
               received well after an offence has occurred. Therefore, crime
               counts are subject to change as they are updated. Crime count is
               based on the most serious violation (MSV) per incident.
-              <br />
-              Violence: These figures include all violent crime offences as
+              <br /><br />
+              <strong>Violence:</strong> These figures include all violent crime offences as
               defined by the Centre for Canadian Justice Statistics Universal
               Crime Reporting (UCR) rules. Domestic violence is excluded.
               <br />
-              Break and Enter: Residential B&E includes both House and ‘Other’
+              <strong>Break and Enter:</strong> Residential B&E includes both House and ‘Other’
               structure break and enters due to the predominantly residential
               nature of this type of break in (e.g. detached garages, sheds).
               B&Es incidents include attempts.
-              <br />
+              <br /><br />
               Resident counts are pulled from the latest census data, and
               therefore undergo a change when new census data is collected and
               made available (typically in the summer).
@@ -137,7 +136,7 @@ function FilterMenu(props) {
             {/* TODO: update link https://data.calgary.ca/Health-and-Safety/Community-Crime-Statistics/78gh-n26t */}
           </AccordionDetails>
         </Accordion>
-        <Box component='form'>
+        <Box component="form">
           <Accordion
             sx={[{ p: 0 }, { m: 0 }]}
             TransitionProps={{ unmountOnExit: true }}
@@ -181,19 +180,27 @@ function FilterMenu(props) {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-          {/* <Card className="inputCard" sx={{ mt: 2 }}> */}
-            <Typography gutterBottom component="div">
-              Season Options
-            </Typography>
+              {/* <Card className="inputCard" sx={{ mt: 2 }}> */}
+              <Typography gutterBottom component="div">
+                Season Options
+              </Typography>
             </AccordionSummary>
             <AccordionDetails>
-            <FormGroup>
- 
-            {potentialTimes.map((time) => {
-              return (
-                <FormControlLabel  
-                    key={time} control={<Checkbox onChange={() => handleFilters(time)} checked={tempTime.includes(time.toLowerCase())} id={time}/>} label={time} />
-                /* {<label> 
+              <FormGroup>
+                {potentialTimes.map((time) => {
+                  return (
+                    <FormControlLabel
+                      key={time}
+                      control={
+                        <Checkbox
+                          onChange={() => handleFilters(time)}
+                          checked={tempTime.includes(time.toLowerCase())}
+                          id={time}
+                        />
+                      }
+                      label={time}
+                    />
+                    /* {<label> 
                  <input
                     type="checkbox"
                     onChange={() => handleFilters(time)}
@@ -205,17 +212,26 @@ function FilterMenu(props) {
                   <br />{" "}
                 </label>
                 }*/
-              );
-            })}
-            </FormGroup>
+                  );
+                })}
+              </FormGroup>
             </AccordionDetails>
           </Accordion>
           {/* </Card> */}
-          <Button variant="contained" onClick={() => {handleSubmit()}}>Contained</Button>
+          <hr />
+          <Box sx={{pt:5}}>
+            <Button
+            size="large"
+              variant="contained"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              UPDATE YOUR FILTERS
+            </Button>
             {/* <button onClick={handleSubmit}>Submit</button> */}
-
+          </Box>
         </Box>
-       
       </CardContent>
       <CardActions></CardActions>
     </Card>

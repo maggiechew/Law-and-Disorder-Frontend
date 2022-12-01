@@ -6,7 +6,10 @@
 }
 
 .map-page {
-   display: flex;
+  height:100%;
+  overflow:hidden; 
+  display: flex;
+   flex-direction: column;
     justify-content: flex-end ;
     align-items: flex-end;
 }
@@ -18,5 +21,7 @@
   /* position: absolute; */
   /* grid-row: 2 / 3; */
   /* bottom:500px; */
-  z-index: 10000000001;
+  /* z-index: 10000000001; */
 }
+
+

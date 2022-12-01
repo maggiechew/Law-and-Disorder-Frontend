@@ -1,18 +1,18 @@
 #filter-menu {
-  z-index: 99;
+  /* z-index: 99; */
   transition: all 2.2s cubic-bezier(.56,-0.67,.74,1.69
   );
   /* display: flex;
     justify-content: flex-end;
     align-self: flex-end;
-    /* justify-items: end; */
-  /* grid-row: 1 ; */
-  /* position: fixed;
+     justify-items: end; 
+   grid-row: 1 ; 
+   position: fixed;
     bottom: 0;
-    right: 0; */
-  /* width: 20%; */
-  /* min-width:350px; */
-  /* height: 50px;  */
+    right: 0; 
+   width: 20%; 
+   min-width:350px; 
+   height: 50px;  */
 }
 
 .filtermenu {
@@ -22,9 +22,10 @@
 .filtermenu.open {
   max-height: 800px;
   height:auto;
-  overflow:scroll;
+  overflow:auto;
   width:35%;
-  max-width:500px
+  max-width:500px;
+  z-index:555;
 }
 
 .inputCard {
