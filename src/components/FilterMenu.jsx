@@ -8,11 +8,10 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+
 import "./FilterMenu.css";
 
 import Slidebar from "./Slidebar.jsx";
@@ -104,7 +103,44 @@ function FilterMenu(props) {
               Click submit to see your changes
               <br />
               <Button size="small">Learn More</Button>
+              {/* TODO: link to about us */}
             </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          sx={[{ p: 0 }, { m: 0 }]}
+          TransitionProps={{ unmountOnExit: true }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>About the Data</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Data is provided monthly by the Calgary Police Service. This data
+              is considered cumulative as late-reported incidents are often
+              received well after an offence has occurred. Therefore, crime
+              counts are subject to change as they are updated. Crime count is
+              based on the most serious violation (MSV) per incident.
+              <br />
+              Violence: These figures include all violent crime offences as
+              defined by the Centre for Canadian Justice Statistics Universal
+              Crime Reporting (UCR) rules. Domestic violence is excluded.
+              <br />
+              Break and Enter: Residential B&E includes both House and ‘Other’
+              structure break and enters due to the predominantly residential
+              nature of this type of break in (e.g. detached garages, sheds).
+              B&Es incidents include attempts.
+              <br />
+              Resident counts are pulled from the latest census data, and
+              therefore undergo a change when new census data is collected and
+              made available (typically in the summer).
+            </Typography>
+            <Button size="small">Learn More</Button>
+            {/* TODO: update link https://data.calgary.ca/Health-and-Safety/Community-Crime-Statistics/78gh-n26t */}
           </AccordionDetails>
         </Accordion>
         <form>
@@ -145,11 +181,14 @@ function FilterMenu(props) {
             <Typography gutterBottom component="div">
               Season Options
             </Typography>
-
+            <FormGroup>
+ 
             {potentialTimes.map((time) => {
               return (
-                <label>
-                  <input
+                <FormControlLabel onChange={handleFilters} 
+                    key={time} control={<Checkbox defaultChecked id={time}/>} label={time} />
+                /* {<label> 
+                 <input
                     type="checkbox"
                     onClick={handleFilters}
                     id={time}
@@ -158,36 +197,15 @@ function FilterMenu(props) {
                   {time}
                   <br />{" "}
                 </label>
+                }*/
               );
             })}
+            </FormGroup>
           </Card>
-
-          <Card sx={{ mt: 2 }}>
             <button onClick={handleSubmit}>Submit</button>
-          </Card>
-        </form>
-        <FormControl>
-          <FormLabel className="inputCard">Season Options</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
-            name="radio-buttons-group"
-          >
-            <FormControlLabel
-              value="female"
-              control={<Radio />}
-              label="Female"
-            />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel value="other" control={<Radio />} label="Other" />
-          </RadioGroup>
-        </FormControl>
 
-        {/* <Typography variant="body2" color="red">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-          
-        </Typography> */}
+        </form>
+       
       </CardContent>
       <CardActions></CardActions>
     </Card>
