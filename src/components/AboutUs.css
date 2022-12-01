@@ -21,7 +21,7 @@
 .aboutUs-nav {
   /* z-index: 98; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   justify-self: center;
   width: 75%;
   grid-row: 2;
@@ -30,19 +30,24 @@
 }
 
 #headerButtonselected {
-  /* border: 1px solid black; */
-  /* width: 20px; */
   flex: auto;
   flex-direction: column;
   display: inline;
   padding: 1em;
-  padding-top: 0.75em;
   margin: 0;
   background-color: #42a5f5;
   color: white;
-  /* text-decoration: none;
-  text-align: center;
-  font-family: "Unna"; */
+  /* max-width:500px; */
+  width:50%;
+}
+#headerButton {
+  flex: auto;
+  flex-direction: column;
+  display: inline;
+  padding: 1em;
+  margin: 0;
+  /* max-width:500px; */
+  width:50%;
 }
 
 .frank {
@@ -52,27 +57,17 @@
   grid-template-rows: auto auto;
   /* border: solid black 5px; */
   /* background-color: #c7c7c7; */
-  height: 1000px;
+  height: 740px;
   overflow: auto;
   padding-top: 10px;
 }
 .frank2 {
-  /* grid-row: 2; */
   display: grid;
   grid-template-rows: 1fr 1fr;
-  /* height: 500px; */
-
-  /* display: flex;
-  flex-direction: column; */
-  /* justify-content: flex-start; */
-
-  /* margin: auto; */
-  /* grid-template-columns: auto auto; */
-
   justify-content: center;
   /* border: solid black 5px; */
   /* background-color: #c7c7c7; */
-  height: 1000px;
+  max-height: 720px;
   overflow: auto;
   padding-top: 10px;
 }
@@ -89,14 +84,17 @@
   justify-content: center;
   /* align-content: space-evenly; */
   grid-row: 2;
+  align-self:center;
   /* border: solid red 2px; */
   /* background-color: #42a5f5; */
-  width: 1000px;
+  /* width: 70%; */
+  max-width: 1000px;
 }
 
 .content {
 /* border: solid yellow 10px; */
 margin: 10px;
+text-align: center;
 }
 
 
@@ -111,7 +109,7 @@ justify-content: center;
 
 .about-logo {
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
 }
 
 .bios {
@@ -147,7 +145,7 @@ justify-content: center;
   display: flex;
   align-content: end;
   /* border: solid yellow 2px; */
-  padding: 10px;
+  padding:10px;
 }
 .jenn {
   display: flex;

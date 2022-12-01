@@ -18,7 +18,7 @@ function AboutHeader(props) {
   return (
     <div className="header">
       <div className="page-title">
-        <Typography variant="h2" gutterbottom>About This Project</Typography>
+        <Typography variant="h3" gutterbottom>About This Project</Typography>
       </div>
       <br />
       <div className="aboutUs-nav">

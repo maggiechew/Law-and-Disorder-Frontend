@@ -17,7 +17,7 @@ function AboutProject() {
             <hr />
           </Typography>{" "}
           <br />
-          <Typography variant="body1" sx={{ pt: 2, fontSize: 20 }}>
+          <Typography variant="body1" sx={{ pt: 2, fontSize: 16 }}>
             At Law & Disorder, we are inspired to make meaningful change in our
             city by bringing awareness to key issues as they progress each year,
             and eventually be able to give us a more accurate idea of how we can
@@ -36,7 +36,7 @@ function AboutProject() {
           <br />
           <Typography
             variant="body1"
-            sx={{ pt: 2, fontSize: 20, textDecoration: "none" }}
+            sx={{ pt: 2, fontSize: 16, textDecoration: "none" }}
           >
             Data collected by the City of Calgary is collected monthly and
             stored on their publicly-accessible&nbsp;
@@ -67,22 +67,23 @@ function AboutProject() {
             <Typography
               variant="body1"
               sx={{
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: "bold",
                 textDecoration: "none",
                 pb: 1,
+                pt:1
               }}
             >
               Example Query:
             </Typography>
-            <Typography variant="body2" sx={{ fontSize: 18 }}>
+            <Typography variant="body2" sx={{ fontSize: 16 }}>
               https://data.calgary.ca/resource/78gh-n26t.json?$where=crime_count&nbsp;
               {">"} 1
             </Typography>
           </Box>
           <Typography
             variant="body1"
-            sx={{ pt: 2, fontSize: 20, textDecoration: "none" }}
+            sx={{ pt: 2, fontSize: 16, textDecoration: "none" }}
           >
             We, in turn, interpret this data in order to help users gain
             meaningful insights through what we hope is a highly-accessible user
