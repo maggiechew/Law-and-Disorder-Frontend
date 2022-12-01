@@ -28,6 +28,7 @@ export default function Map(props) {
   //   };
   // }, []);
   const { timeFilters, weights } = props;
+  console.log(weights);
   const [dataValue, setDataValue] = useState([]);
 
   useEffect(() => {
@@ -115,8 +116,7 @@ export default function Map(props) {
         layout: {},
         paint: {
           "line-color": "#000",
-          "line-width": 2,
-          opacity: 0.5,
+          "line-width": 1,
         },
       });
 

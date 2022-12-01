@@ -12,9 +12,9 @@ function App() {
   const [weights, setWeights] = useState({
     assault: 0,
     bneStore: 0,
-    bneHome: 1,
+    bneHome: 0,
     bneOther: 0,
-    robStreet: 0,
+    robStreet: 1,
     robStore: 0,
     violence: 0,
     robOfCar: 0,

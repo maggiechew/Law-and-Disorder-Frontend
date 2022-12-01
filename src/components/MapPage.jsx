@@ -6,9 +6,9 @@ import "./MapPage.css";
 //TODO: animations?? transitions??
 
 function MapPage(props) {
-  const { timeFilters, weights } = props;
+  const { timeFilters, weights, setWeights, setTimeFilters } = props;
   const [menuOpen, setMenuOpen] = useState(false);
-
+  console.log(weights);
   return (
     <div className="map-page">
       <Map timeFilters={timeFilters} weights={weights} />
