@@ -85,10 +85,20 @@ function FilterMenu(props) {
           </AccordionDetails>
         </Accordion>
         <form>
-          <Card className="radio" sx={{ mt: 2 }}>
-            <Typography gutterBottom variant="h6" component="div">
-              Crime Options
-            </Typography>
+
+        <Accordion
+          sx={[{ p: 0 }, { m: 0 }]}
+          TransitionProps={{ unmountOnExit: true }}
+          defaultExpanded={true}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography gutterBottom variant="h6" component="div">Crime Options</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <ul>
               {Object.keys(potentialCrimes).map((crime) => {
                 return (
@@ -103,9 +113,10 @@ function FilterMenu(props) {
                 );
               })}
             </ul>
-          </Card>
+          </AccordionDetails>
+        </Accordion>
 
-          <Card className="radio" sx={{ mt: 2 }}>
+          <Card className="inputCard" sx={{ mt: 2 }}>
             <Typography gutterBottom variant="h6" component="div">
               Season Options
             </Typography>
@@ -127,7 +138,7 @@ function FilterMenu(props) {
         </form>
 
         <FormControl>
-          <FormLabel className="radio">Season Options</FormLabel>
+          <FormLabel className="inputCard">Season Options</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
