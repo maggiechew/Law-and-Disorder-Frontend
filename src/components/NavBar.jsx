@@ -22,12 +22,13 @@ function NavBar() {
     <nav id="navbar">
       {menuOpen && (
         <ul className="nav-links">
-          <li>
+          <li key={'crime-map'}>
             <NavLink
               to="/"
               style={{textDecoration: 'none'}}
               className={(isActive) =>
                 "nav-link" + (!isActive ? "unselected" : "")
+                //TODO: Active Styling Option
               }
               activeStyle={{ fontWeight: "bold" }}
             >
@@ -36,7 +37,7 @@ function NavBar() {
               </Typography>
             </NavLink>
           </li>
-          <li>
+          <li key={'about-us'}>
           <NavLink
               to="/about-us"
               style={{textDecoration: 'none'}}
@@ -50,7 +51,7 @@ function NavBar() {
               </Typography>
             </NavLink>
           </li>
-          <li>
+          <li key={'additional-resources'}>
           <NavLink
               to="/additional-resources"
               style={{textDecoration: 'none'}}
