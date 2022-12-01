@@ -18,14 +18,19 @@ import FormLabel from "@mui/material/FormLabel";
 import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 export default function LoadingModal(props) {
+const {setTimeFilters, setWeights} = props;
   const [open, setOpen] = React.useState(true);
-  const blurLoading = props.blurLoading;
+  // const blurLoading = props.blurLoading;
   // const handleClose = () => {
   //   setOpen(false);
   // };
   const handleToggle = () => {
     setOpen(!open);
   };
+
+const handleProfiles = (event) => {
+
+}
 
   return (
     <Backdrop

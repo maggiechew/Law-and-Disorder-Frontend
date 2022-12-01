@@ -8,12 +8,14 @@ import "./MapPage.css";
 
 function MapPage(props) {
   const { timeFilters, weights, setWeights, setTimeFilters } = props;
-
+const tempTime = localStorage.getItem('times');
+const tempWeight = localStorage.getItem('weights');
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      <LoadingModal setWeights={setWeights} />
-
+    {!tempTime | !tempWeight &&
+      <LoadingModal setWeights={setWeights} setTimeFilters={setTimeFilters} />
+}
       <div className="map-page">
         <Map timeFilters={timeFilters} weights={weights} />
         <FilterBar

@@ -28,6 +28,8 @@ function FilterMenu(props) {
     setTimeFilters(tempTime);
     localStorage.removeItem("weights");
     localStorage.setItem("weights", JSON.stringify(tempWeights));
+    localStorage.removeItem("times");
+    localStorage.setItem("times", JSON.stringify(tempTime));
   };
   const handleFilters = (event) => {
     setTempTime([]);
@@ -89,7 +91,7 @@ function FilterMenu(props) {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography >How To Use This Menu</Typography>
+            <Typography>How To Use This Menu</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
