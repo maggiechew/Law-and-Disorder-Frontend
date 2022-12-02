@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import {Box, BottomNavigation, BottomNavigationAction} from "@mui/material";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import PropTypes from "prop-types";
@@ -34,9 +32,6 @@ function Item(props) {
 }
 
 Item.propTypes = {
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
   sx: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])

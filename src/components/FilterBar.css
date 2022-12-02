@@ -3,21 +3,9 @@
   display: flex;
   justify-content: flex-end;
   align-self: flex-end;
-  /* justify-items: end; */
-  /* grid-row: 1 ; */
-  /* position: fixed; */
   bottom: 0;
   right: 0;
-  /* width: 20%; */
-  /* min-width:350px; */
   height: 50px;
-}
-
-#appbar {
-  /* justify-content: flex-end; */
-  /* background-color: white; */
-  /* color: red; */
-  /* min-width: 100px; */
 }
 
 .arrow-button {
@@ -33,12 +21,11 @@
   -webkit-transition: font-size 0.2s, opacity 0.2s;
   transition: font-size 0.2s, opacity 0.2s;
   transition-delay: 0.1s;
-  display:inline-flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-    -webkit-box-pack: center;
-    flex-direction: column;
-    
+  -webkit-box-pack: center;
+  flex-direction: column;
 }
 .fake-caption {
   color: rgba(0, 0, 0, 0.6);
@@ -48,19 +35,15 @@
   -webkit-transition: font-size 0.2s, opacity 0.2s;
   transition: font-size 0.2s, opacity 0.2s;
   transition-delay: 0.1s;
-  display:inline-flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-    -webkit-box-pack: center;
-    flex-direction: column;
+  -webkit-box-pack: center;
+  flex-direction: column;
 }
-/* class = "arrow-button" */
 
 @media screen and (max-width: 35em) {
   #filterbar {
-    /* display: flex;  */
     width: 100%;
-    /* justify-content: space-between; */
-    /* : update  */
   }
 }

@@ -1,12 +1,14 @@
 import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
+import {
+  Typography,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+} from "@mui/material";
 import emmanuelHS from "../Images/emmanuel-hs.jpeg";
 import maggieHS from "../Images/MAGGIE_HS_IU-1.jpeg";
 import jaredHS from "../Images/jared-hs.jpeg";
@@ -23,24 +25,25 @@ function BioCards() {
           style={{}}
         >
           <CardMedia
-          className="photo"
+            className="photo"
             component="img"
             height="260"
             image={emmanuelHS}
             alt="Photo of Emmanuel"
           />
           <CardContent>
-          <div className="titles">
-            <Typography variant="h5" component="div">
-              Emmanuel
-            </Typography>
-            <Typography variant="overline" display="block">
-              Mr. Manager
-            </Typography>
+            <div className="titles">
+              <Typography variant="h5" component="div">
+                Emmanuel
+              </Typography>
+              <Typography variant="overline" display="block">
+                Mr. Manager
+              </Typography>
             </div>
             <Typography variant="body2" color="text.secondary">
               Notorious for his status as Monopoly Cheaters Champion 2022.
-            <br /> Wants to prevent people from stealing from other  people's homes… <i>Jared</i>..
+              <br /> Wants to prevent people from stealing from other people's
+              homes… <i>Jared</i>..
             </Typography>
           </CardContent>
           <CardActions className="get-in-touch">
@@ -128,13 +131,13 @@ function BioCards() {
             alt="Photo of Jenn"
           />
           <CardContent>
-          <div className="titles">
-            <Typography variant="h5" component="div">
-              Jenn
-            </Typography>
-            <Typography variant="overline" display="block" gutterbottom>
-              Double Trouble Solution Designer
-            </Typography>
+            <div className="titles">
+              <Typography variant="h5" component="div">
+                Jenn
+              </Typography>
+              <Typography variant="overline" display="block" gutterbottom>
+                Double Trouble Solution Designer
+              </Typography>
             </div>
             <Typography variant="body2" color="text.secondary">
               Fighting evil by moonlight, Winning Love by Daylight, Never
@@ -178,13 +181,13 @@ function BioCards() {
             alt="Photo of Jared"
           />
           <CardContent>
-          <div className="titles">
-            <Typography variant="h5" component="div">
-              Jared
-            </Typography>
-            <Typography variant="overline" display="block" gutterbottom>
-              "I'm Jared"
-            </Typography>
+            <div className="titles">
+              <Typography variant="h5" component="div">
+                Jared
+              </Typography>
+              <Typography variant="overline" display="block" gutterbottom>
+                "I'm Jared"
+              </Typography>
             </div>
             <Typography variant="body2" color="text.secondary">
               Jared is passionate about crime, and wanted a way to be sure his

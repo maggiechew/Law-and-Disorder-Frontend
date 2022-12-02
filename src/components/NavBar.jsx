@@ -1,5 +1,3 @@
-//TODO: https://mui.com/material-ui/react-drawer/#main-content is this better?
-
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
@@ -19,9 +17,8 @@ function NavBar() {
             <NavLink
               to="/"
               style={{ textDecoration: "none" }}
-              className={
-                (isActive) => "nav-link" + (!isActive ? "unselected" : "")
-                //TODO: Active Styling Option
+              className={(isActive) =>
+                "nav-link" + (!isActive ? "unselected" : "")
               }
               activeStyle={{ fontWeight: "bold" }}
             >
@@ -58,9 +55,6 @@ function NavBar() {
               </Typography>
             </NavLink>
           </li>
-          {/* <li>
-        <a>
-        <Typography sx={{ fontSize: 14 }} color='white' gutterBottom>About Us</Typography></a>        </li> */}
         </ul>
       )}
 

@@ -4,7 +4,6 @@
 
 .resources {
   grid-row: 2/4;
-  /* background-color: cyan; */
   display: grid;
   grid-template-rows: auto auto;
 }
@@ -13,7 +12,6 @@
   grid-row: 1;
   z-index: 6;
   background-color: white;
-  /* border: solid pink 10px; */
   overflow: hidden;
   padding: 10px;
   align-items: center;
@@ -22,7 +20,6 @@
 iframe {
   width: 100%;
   height: 100%;
-  /* border-color: solid red 10px; */
 }
 
 .krang {
@@ -31,11 +28,9 @@ iframe {
   position: absolute;
   bottom: 0;
   border: solid lightgray 1px;
-  /* background-color: #c7c7c7; */
   height: 70%;
   width: 100%;
   overflow: hidden;
-  /* padding-top: 10px; */
 }
 
 @media screen and (min-height: 813px) {

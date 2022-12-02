@@ -1,32 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
-// import Filters from "./Filters";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export default function Map(props) {
-  // const [viewport, setViewport] = useState({
-  //   latitude: 51.04427,
-  //   longitude: -114.062019,
-  //   // longitude: -114.062019,
-  //   width: "100vw",
-  //   height: "100vh",
-  //   zoom: 30,
-  // });
-  // const [selectedCrime, setSelectedCrime] = useState(null);
-
-  // useEffect(() => {
-  //   const listener = (e) => {
-  //     if (e.key === "Escape") {
-  //       setSelectedCrime(null);
-  //     }
-  //   };
-  //   window.addEventListener("keydown", listener);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", listener);
-  //   };
-  // }, []);
   const { timeFilters, weights } = props;
   const [dataValue, setDataValue] = useState();
 
@@ -182,19 +159,6 @@ export default function Map(props) {
           },
         });
 
-        // map.addLayer({
-        //   id: "community_name",
-        //   type: "symbol",
-        //   source: "crime",
-        //   maxzoom: 12,
-        //   layout: {
-        //     "text-field": ["get", "name"],
-
-        //     "text-offset": [0, 0],
-        //     "text-anchor": "center",
-        //   },
-        // });
-
         dataValue?.features?.forEach((marker) => {
           console.log(marker);
           if (marker.properties.communityCentre) {
@@ -214,7 +178,7 @@ export default function Map(props) {
                   )}</h3></div>`
                 )
               );
-            // make marker only visible at zoom level 16
+            // make marker only visible at zoom level 11
             newMarker.getElement().style.display = "none";
             map.on("zoom", () => {
               if (map.getZoom() >= 11) {

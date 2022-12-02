@@ -1,7 +1,5 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-
+import {Typography, Button} from "@mui/material";
 
 function AboutHeader(props) {
   const {setAboutProject, aboutProject} = props;

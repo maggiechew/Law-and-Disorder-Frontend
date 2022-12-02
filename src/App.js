@@ -1,4 +1,3 @@
-// import logo from "./Law&DisOrderLogoV11_Horizontal.png";
 import "./App.css";
 
 import NavBar from "./components/NavBar";
@@ -9,11 +8,8 @@ import AboutUs from "./components/AboutUs";
 import AdditionalResources from "./components/AdditionalResources";
 
 function App() {
-  // const [blurLoading, setBlurLoading] = useState(true);
   const [weights, setWeights] = useState({});
-  // const [crimeFilters, setCrimeFilters] = useState(["assault"]);
   const [timeFilters, setTimeFilters] = useState([]);
-  // console.log(menuOpen);
 
   return (
     <>

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import {
+  CardActions,
+  CardContent,
+  Button,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Box,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import Box from "@mui/material/Box";
-
 import "./FilterMenu.css";
-
 import Slidebar from "./Slidebar.jsx";
 
 const potentialCrimes = {
@@ -42,7 +42,6 @@ function FilterMenu(props) {
   }, [weights, timeFilters]);
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
     setWeights(tempWeights);
     setTimeFilters(tempTime);
     localStorage.removeItem("weights");
@@ -64,12 +63,10 @@ function FilterMenu(props) {
 
   return (
     <Card
-      // className='the-card'
       id="filter-menu"
       sx={[{ maxWidth: 1 / 3 }, { minWidth: 350 }, { width: 4 / 12 }]}
       className={className}
     >
-      {/* <Slide direction="up" in={menuOpen} mountOnEnter unmountOnExit></Slide> */}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Map Menu
@@ -93,12 +90,10 @@ function FilterMenu(props) {
               Choosing seasons will allow you to look for crime at specific
               times of the year.
               <br />
-              Click submit to see your changes
+              Update your filters to see new information
               <br />
               Zoom in to see more details about specific communities.
               <br />
-              <Button size="small">Learn More</Button>
-              {/* TODO: link to about us */}
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -120,22 +115,23 @@ function FilterMenu(props) {
               received well after an offence has occurred. Therefore, crime
               counts are subject to change as they are updated. Crime count is
               based on the most serious violation (MSV) per incident.
-              <br /><br />
-              <strong>Violence:</strong> These figures include all violent crime offences as
-              defined by the Centre for Canadian Justice Statistics Universal
-              Crime Reporting (UCR) rules. Domestic violence is excluded.
               <br />
-              <strong>Break and Enter:</strong> Residential B&E includes both House and ‘Other’
-              structure break and enters due to the predominantly residential
-              nature of this type of break in (e.g. detached garages, sheds).
-              B&Es incidents include attempts.
-              <br /><br />
+              <br />
+              <strong>Violence:</strong> These figures include all violent crime
+              offences as defined by the Centre for Canadian Justice Statistics
+              Universal Crime Reporting (UCR) rules. Domestic violence is
+              excluded.
+              <br />
+              <strong>Break and Enter:</strong> Residential B&E includes both
+              House and ‘Other’ structure break and enters due to the
+              predominantly residential nature of this type of break in (e.g.
+              detached garages, sheds). B&Es incidents include attempts.
+              <br />
+              <br />
               Resident counts are pulled from the latest census data, and
               therefore undergo a change when new census data is collected and
               made available (typically in the summer).
             </Typography>
-            <Button size="small">Learn More</Button>
-            {/* TODO: update link https://data.calgary.ca/Health-and-Safety/Community-Crime-Statistics/78gh-n26t */}
           </AccordionDetails>
         </Accordion>
         <Box component="form">
@@ -182,7 +178,6 @@ function FilterMenu(props) {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              {/* <Card className="inputCard" sx={{ mt: 2 }}> */}
               <Typography gutterBottom component="div">
                 Season Options
               </Typography>
@@ -202,28 +197,15 @@ function FilterMenu(props) {
                       }
                       label={time}
                     />
-                    /* {<label> 
-                 <input
-                    type="checkbox"
-                    onChange={() => handleFilters(time)}
-                    id={time}
-                    key={time}
-                    checked={tempTime.includes(time.toLowerCase())}
-                  />
-                  {time}
-                  <br />{" "}
-                </label>
-                }*/
                   );
                 })}
               </FormGroup>
             </AccordionDetails>
           </Accordion>
-          {/* </Card> */}
           <hr />
-          <Box sx={{pt:5}}>
+          <Box sx={{ pt: 5 }}>
             <Button
-            size="large"
+              size="large"
               variant="contained"
               onClick={() => {
                 handleSubmit();
@@ -231,7 +213,6 @@ function FilterMenu(props) {
             >
               UPDATE YOUR FILTERS
             </Button>
-            {/* <button onClick={handleSubmit}>Submit</button> */}
           </Box>
         </Box>
       </CardContent>

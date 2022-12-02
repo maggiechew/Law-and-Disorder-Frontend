@@ -1,7 +1,5 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-
+import {Typography, Box} from "@mui/material";
 import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 function AboutProject() {
@@ -44,7 +42,6 @@ function AboutProject() {
               href="https://data.calgary.ca/Health-and-Safety/Community-Crime-Statistics/78gh-n26t/data"
               target="_blank"
               rel="noreferrer"
-              // className="krang"
             >
               website
             </a>
@@ -54,7 +51,6 @@ function AboutProject() {
               href="https://dev.socrata.com/foundry/data.calgary.ca/78gh-n26t"
               target="_blank"
               rel="noreferrer"
-              // className="krang"
             >
               Socrata Open Data
             </a>
@@ -99,11 +95,6 @@ function AboutProject() {
           </Typography>
         </div>
       </div>
-      {/* <div className='test'>
-    <Typography variant='h4'>
-      Hi
-    </Typography>
-    </div> */}
     </div>
   );
 }

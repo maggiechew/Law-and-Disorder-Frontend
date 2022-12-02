@@ -1,19 +1,5 @@
 import React from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Button from "@mui/material/Button";
-// import LoadingCard from './LoadingCard';
-
-// import React from "react";
-// import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-// import Button from "@mui/material/Button";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import {Backdrop, Button, Card, CardActions, CardContent, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel} from "@mui/material";
 import logo from "../Law&DisOrderLogoV11_Horizontal.png";
 
 export default function LoadingModal(props) {
@@ -56,10 +42,6 @@ export default function LoadingModal(props) {
     robFromCar: 8,
   };
   const communityMemberTime = ["fall", "summer", "spring", "winter"];
-  // const blurLoading = props.blurLoading;
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
   const handleSubmit = (event) => {
     event.preventDefault();
     setOpen(!open);
@@ -95,14 +77,10 @@ export default function LoadingModal(props) {
     <Backdrop
       sx={{
         backdropFilter: "blur(20px)",
-        // zIndex: (theme) => theme.zIndex.drawer + 1,
         zIndex: 100,
       }}
-      // sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
       open={open}
-      // onClick={handleClose}
     >
-      {/* <CircularProgress color="inherit" /> */}
       <Card sx={{ minWidth: 275 }} variant="outlined">
         <CardContent>
           <img src={logo} alt="Law & DisOrder Logo V11" />
@@ -138,21 +116,6 @@ export default function LoadingModal(props) {
               />
             </RadioGroup>
           </FormControl>
-
-          {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Word of the Day
-            </Typography>
-            <Typography variant="h5" component="div">
-              be{bull}nev{bull}o{bull}lent
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography> */}
         </CardContent>
         <CardActions>
           <Button type="submit" size="small" onClick={handleSubmit}>
@@ -160,7 +123,6 @@ export default function LoadingModal(props) {
           </Button>
         </CardActions>
       </Card>
-      {/* <Button onClick={handleToggle}>Hide backdrop</Button> */}
     </Backdrop>
   );
 }

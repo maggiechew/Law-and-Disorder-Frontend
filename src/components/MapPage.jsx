@@ -4,13 +4,10 @@ import FilterMenu from "./FilterMenu";
 import Map from "./Map";
 import LoadingModal from "./LoadingModal";
 import "./MapPage.css";
-//TODO: animations?? transitions??
 
 function MapPage(props) {
   const { timeFilters, weights, setWeights, setTimeFilters } = props;
 
-  // let tempTime;
-  // let tempWeight; 
   useEffect(() => {
     const tempTime=JSON.parse(localStorage.getItem("times"));
     const tempWeight=JSON.parse(localStorage.getItem("weights"));

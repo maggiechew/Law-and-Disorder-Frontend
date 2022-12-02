@@ -7,9 +7,6 @@ import Slider from "@mui/material/Slider";
 export default function InputSlider(props) {
   const { tempWeights, setTempWeights, crime, potentialCrimes } = props;
   const [value, setValue] = React.useState(tempWeights[crime]);
-  // console.log(weights);
-  // console.log(crime);
-  // console.log(potentialCrimes)
 
   React.useEffect(() => {
     setValue(tempWeights[crime]);
@@ -70,19 +67,6 @@ export default function InputSlider(props) {
         </Grid>
         <Grid item>
           {tempWeights[crime]}
-          {/* <Input
-            value={value}
-            size="small"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step: 1,
-              min: 0,
-              max: 10,
-              type: "number",
-              "aria-labelledby": "input-slider",
-            }}
-          /> */}
         </Grid>
       </Grid>
     </Box>
