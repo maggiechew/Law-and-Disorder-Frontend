@@ -9,8 +9,8 @@ function ResourcesHeader() {
           <Typography variant="h3" gutterbottom>
             Additional Resources
           </Typography>
-          <Typography variant="subtitle1" gutterbottom>
-            Please check out these resources to see what's available online!
+          <Typography variant="subtitle2" sx={{ mt: 1 }} gutterbottom>
+            The Resources below may help keep you safe.{" "}
           </Typography>
         </div>
       </div>

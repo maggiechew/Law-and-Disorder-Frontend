@@ -69,7 +69,7 @@ function FilterBar(props) {
       >
         <Box className="fake-container">
           <Item sx={{ width: 100, margin: "6px", padding: "5px" }}></Item>
-          <span className="fake-caption">Legend</span>
+          <span className="fake-caption">High - Legend - Low</span>
         </Box>
 
         {menuOpen && (

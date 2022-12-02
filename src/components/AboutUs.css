@@ -140,3 +140,7 @@
 .get-in-touch {
   grid-row: 4;
 }
+
+.resource-header {
+  margin-top:10px;
+}

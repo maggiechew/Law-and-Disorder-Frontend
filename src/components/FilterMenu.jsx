@@ -83,7 +83,7 @@ function FilterMenu(props) {
             <Typography>How To Use This Menu</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography variant='subtitle2'>
               Please choose from the filters below to select which crimes you
               would like to see reflected in this map.
               <br />
@@ -109,7 +109,7 @@ function FilterMenu(props) {
             <Typography>About the Data</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography variant='subtitle2'>
               Data is provided monthly by the Calgary Police Service. This data
               is considered cumulative as late-reported incidents are often
               received well after an offence has occurred. Therefore, crime
@@ -151,6 +151,8 @@ function FilterMenu(props) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
+              <Typography gutterBottom component="div" variant="subtitle2">
+Choose the weights to create your own custom view of criminal activity in the city of Calgary.<br /> <strong>10</strong> = Highest importance, <strong>1</strong> = lowest importance<br /> Choosing 0 will hide that crime type from the map.             </Typography><br />
               <ul>
                 {Object.keys(potentialCrimes).map((crime) => {
                   return (

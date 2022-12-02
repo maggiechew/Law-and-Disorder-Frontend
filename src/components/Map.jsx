@@ -82,7 +82,7 @@ export default function Map(props) {
           filter: ["all", [">=", "crimeScore", 0.6], ["<", "crimeScore", 0.7]],
           paint: {
             "fill-color": "#E15300",
-            "fill-opacity": 0.6,
+            "fill-opacity": 0.5,
           },
         });
         map.addLayer({
@@ -102,7 +102,7 @@ export default function Map(props) {
           filter: ["all", [">=", "crimeScore", 0.4], ["<", "crimeScore", 0.5]],
           paint: {
             "fill-color": "#E98700",
-            "fill-opacity": 0.4,
+            "fill-opacity": 0.5,
           },
         });
 
@@ -113,7 +113,7 @@ export default function Map(props) {
           filter: ["all", [">=", "crimeScore", 0.3], ["<", "crimeScore", 0.4]],
           paint: {
             "fill-color": "#EDA100",
-            "fill-opacity": 0.4,
+            "fill-opacity": 0.5,
           },
         });
         map.addLayer({
@@ -123,7 +123,7 @@ export default function Map(props) {
           filter: ["all", [">=", "crimeScore", 0.2], ["<", "crimeScore", 0.3]],
           paint: {
             "fill-color": "#F1BA00",
-            "fill-opacity": 0.4,
+            "fill-opacity": 0.5,
           },
         });
         map.addLayer({
@@ -133,7 +133,7 @@ export default function Map(props) {
           filter: ["all", [">=", "crimeScore", 0.1], ["<", "crimeScore", 0.2]],
           paint: {
             "fill-color": "#F4D000",
-            "fill-opacity": 0.3,
+            "fill-opacity": 0.4,
           },
         });
 
@@ -144,7 +144,7 @@ export default function Map(props) {
           filter: ["<", "crimeScore", 0.1],
           paint: {
             "fill-color": "#F9F100",
-            "fill-opacity": 0.3,
+            "fill-opacity": 0.4,
           },
         });
 
