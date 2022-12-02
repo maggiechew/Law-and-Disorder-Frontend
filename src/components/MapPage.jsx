@@ -9,21 +9,26 @@ import "./MapPage.css";
 function MapPage(props) {
   const { timeFilters, weights, setWeights, setTimeFilters } = props;
 
-  const tempTime = JSON.parse(localStorage.getItem("times"));
-  const tempWeight = JSON.parse(localStorage.getItem("weights"));
+  // let tempTime;
+  // let tempWeight; 
   useEffect(() => {
+    const tempTime=JSON.parse(localStorage.getItem("times"));
+    const tempWeight=JSON.parse(localStorage.getItem("weights"));
+
     if (tempWeight) {
       setWeights(tempWeight);
     }
     if (tempTime) {
       setTimeFilters(tempTime);
     }
-  }, [setTimeFilters, setWeights, tempTime, tempWeight]);
+  }, [setTimeFilters, setWeights]);
+
+console.log("Hello there", timeFilters, weights)
 
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      {!tempTime | !tempWeight && (
+      {(!(timeFilters.length>0) || (weights.assault===undefined)) && (
         <LoadingModal setWeights={setWeights} setTimeFilters={setTimeFilters} />
       )}
       <div className="map-page">

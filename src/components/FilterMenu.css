@@ -1,7 +1,6 @@
 #filter-menu {
   /* z-index: 99; */
-  transition: all 2.2s cubic-bezier(.56,-0.67,.74,1.69
-  );
+  transition: all 2.2s cubic-bezier(0.56, 0.67, 0.74, 1.69);
   /* display: flex;
     justify-content: flex-end;
     align-self: flex-end;
@@ -21,11 +20,11 @@
 
 .filtermenu.open {
   max-height: 800px;
-  height:auto;
-  overflow:auto;
-  width:35%;
-  max-width:500px;
-  z-index:555;
+  height: 100%;
+  overflow: auto;
+  width: 35%;
+  max-width: 500px;
+  z-index: 555;
 }
 
 .inputCard {
@@ -33,15 +32,15 @@
 }
 
 li {
-  padding-left:20px;
+  padding-left: 20px;
 }
 
 ul {
-  list-style:none;
+  list-style: none;
 }
 
 @media screen and (max-width: 35em) {
   li {
-   padding-left:0px;
+    padding-left: 0px;
   }
 }
