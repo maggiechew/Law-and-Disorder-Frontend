@@ -65,48 +65,108 @@ export default function Map(props) {
         map.addSource("crime", {
           type: "geojson",
           data: dataValue,
-          // data: await getData("stuff"), //TODO: update "stuff"
         });
 
         map.addLayer({
-          id: "high-crime",
+          id: "crime-level-9",
           type: "fill",
-          source: "crime", //reference the data source
-          filter: [">=", "crimeScore", 0.8],
+          source: "crime",
+          filter: [">=", "crimeScore", 0.9],
           paint: {
-            "fill-color": "#850101",
+            "fill-color": "#BA0000",
             "fill-opacity": 0.6,
           },
         });
         map.addLayer({
-          id: "medium-crime",
+          id: "crime-level-8",
           type: "fill",
           source: "crime",
-          filter: ["all", [">=", "crimeScore", 0.6], ["<", "crimeScore", 0.8]],
+          filter: ["all", [">=", "crimeScore", 0.8], ["<", "crimeScore", 0.9]],
           paint: {
-            "fill-color": "#dd2c00",
-            "fill-opacity": 0.7,
+            "fill-color": "#DB2500",
+            "fill-opacity": 0.6,
           },
         });
 
         map.addLayer({
-          id: "low-crime",
+          id: "crime-level-7",
           type: "fill",
           source: "crime",
-          filter: ["all", [">=", "crimeScore", 0.3], ["<", "crimeScore", 0.6]],
+          filter: ["all", [">=", "crimeScore", 0.7], ["<", "crimeScore", 0.8]],
           paint: {
-            "fill-color": "orange",
+            "fill-color": "#DD3700",
+            "fill-opacity": 0.6,
+          },
+        });
+        map.addLayer({
+          id: "crime-level-6",
+          type: "fill",
+          source: "crime",
+          filter: ["all", [">=", "crimeScore", 0.6], ["<", "crimeScore", 0.7]],
+          paint: {
+            "fill-color": "#E15300",
+            "fill-opacity": 0.6,
+          },
+        });
+        map.addLayer({
+          id: "crime-level-5",
+          type: "fill",
+          source: "crime",
+          filter: ["all", [">=", "crimeScore", 0.5], ["<", "crimeScore", 0.6]],
+          paint: {
+            "fill-color": "#E56C00",
             "fill-opacity": 0.5,
           },
         });
-
         map.addLayer({
-          id: "no-crime",
+          id: "crime-level-4",
           type: "fill",
           source: "crime",
-          filter: ["<", "crimeScore", 0.3],
+          filter: ["all", [">=", "crimeScore", 0.4], ["<", "crimeScore", 0.5]],
           paint: {
-            "fill-color": "yellow",
+            "fill-color": "#E98700",
+            "fill-opacity": 0.4,
+          },
+        });
+
+        map.addLayer({
+          id: "crime-level-3",
+          type: "fill",
+          source: "crime",
+          filter: ["all", [">=", "crimeScore", 0.3], ["<", "crimeScore", 0.4]],
+          paint: {
+            "fill-color": "#EDA100",
+            "fill-opacity": 0.4,
+          },
+        });
+        map.addLayer({
+          id: "crime-level-2",
+          type: "fill",
+          source: "crime",
+          filter: ["all", [">=", "crimeScore", 0.2], ["<", "crimeScore", 0.3]],
+          paint: {
+            "fill-color": "#F1BA00",
+            "fill-opacity": 0.4,
+          },
+        });
+        map.addLayer({
+          id: "crime-level-1",
+          type: "fill",
+          source: "crime",
+          filter: ["all", [">=", "crimeScore", 0.1], ["<", "crimeScore", 0.2]],
+          paint: {
+            "fill-color": "#F4D000",
+            "fill-opacity": 0.3,
+          },
+        });
+
+        map.addLayer({
+          id: "crime-level-0",
+          type: "fill",
+          source: "crime",
+          filter: ["<", "crimeScore", 0.1],
+          paint: {
+            "fill-color": "#F9F100",
             "fill-opacity": 0.3,
           },
         });
@@ -117,7 +177,7 @@ export default function Map(props) {
           source: "crime",
           layout: {},
           paint: {
-            "line-color": "#000",
+            "line-color": `hsl(0deg, 0, 0.18)`,
             "line-width": 1,
           },
         });
@@ -147,23 +207,24 @@ export default function Map(props) {
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                   `<div style="border-radius: 50%"><h3>${
                     marker.properties.name
-                  }<br><strong>Sector: </strong>${marker.properties.class}<br>Crime Score:${marker.properties.crimeScore.toFixed(
+                  }<br><strong>Sector: </strong>${
+                    marker.properties.class
+                  }<br>Crime Score:${marker.properties.crimeScore.toFixed(
                     2
-                  )
-                }</h3></div>`
+                  )}</h3></div>`
                 )
               );
             // make marker only visible at zoom level 16
             newMarker.getElement().style.display = "none";
             map.on("zoom", () => {
-              if (map.getZoom() >= 12) {
+              if (map.getZoom() >= 11) {
                 newMarker.getElement().style.display = "block";
               } else {
                 newMarker.getElement().style.display = "none";
               }
             });
           }
-        })
+        });
         map.addLayer(
           {
             id: "crime-point",

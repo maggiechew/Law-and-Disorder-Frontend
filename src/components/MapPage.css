@@ -14,14 +14,12 @@
     align-items: flex-end;
 }
 
-#filter-menu {
-  /* position: fixed;
-  bottom: 0;
-  right: 0; */
-  /* position: absolute; */
-  /* grid-row: 2 / 3; */
-  /* bottom:500px; */
-  /* z-index: 10000000001; */
+.mapboxgl-marker path {
+ fill: #0d43ede6;
+}
+.mapboxgl-marker svg {
+ height: 47px;
+ width: 47px;
 }
 
 
